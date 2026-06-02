@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Square Foot – May 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap');
+ 
+  :root{
+    --navy:#00539B; --blue:#56A0D3; --sky:#3C92CC; --midb:#1964A5;
+    --lb:#88BCE0; --paleb:#AACFE9; --dark1:#002060;
+    --ink:#59575B; --fg2:#817F83; --fg3:#A6A5A8;
+    --bg:#FFFFFF; --bgl:#EEF5FA; --bgn:#E5E5E6;
+    --dg:#59575B; --mg:#817F83;
+  }
+ 
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bgl);font-family:'Inter',sans-serif;font-size:13px;line-height:1.6;color:var(--ink);min-height:100vh}
+ 
+  .page-frame{max-width:1200px;margin:0 auto;background:#fff;box-shadow:0 0 24px rgba(0,0,0,.08)}
+ 
+  .print-bar{background:var(--navy);padding:10px 48px;display:flex;align-items:center;justify-content:space-between}
+  .print-bar .back-link{color:var(--paleb);font-size:12px;text-decoration:none;font-weight:700;letter-spacing:.3px;display:inline-flex;align-items:center;gap:6px}
+  .print-bar .back-link:hover{color:#fff}
+  .print-bar .back-link::before{content:"←";font-size:14px;color:var(--lb)}
+  .print-btn{background:var(--sky);color:#fff;border:none;padding:8px 20px;border-radius:4px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.5px}
+  .print-btn:hover{background:var(--blue)}
+ 
+  .mast{background:var(--navy);padding:18px 48px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;white-space:nowrap;letter-spacing:-.5px}
+  .logo span{color:var(--lb)}
+  .mast-meta{color:var(--fg3);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;text-align:right;line-height:1.7}
+  .mast-meta strong{color:var(--lb);font-weight:600}
+ 
+  .hero{background:linear-gradient(135deg,var(--dark1),var(--navy));padding:48px 48px 40px;border-bottom:3px solid var(--sky)}
+  .hero-inner{max-width:1200px;margin:0 auto}
+  .badge{display:inline-block;background:var(--sky);color:#fff;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:10px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;max-width:760px}
+  .hero h1 em{color:var(--lb);font-style:normal}
+  .hero p.tagline{color:var(--paleb);font-size:14px;max-width:1000px;line-height:1.6}
+ 
+  .container{max-width:1200px;margin:0 auto;padding:0 48px 48px}
+ 
+  .pb{background:var(--midb);color:#fff;padding:9px 48px;display:flex;align-items:center;gap:10px}
+  .pbn{background:var(--sky);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;color:#fff}
+  .pbt{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;white-space:nowrap}
+ 
+  .rule{height:2px;background:linear-gradient(90deg,var(--sky),transparent);border:none;margin:6px 0 16px}
+  .slabel{font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);margin-bottom:4px}
+  h2{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.2}
+  p{margin-bottom:10px;color:var(--dg);font-size:12.5px;line-height:1.55}
+ 
+  /* RIDDLE STRIP */
+  .riddle-strip{background:linear-gradient(135deg,var(--dark1),var(--navy));padding:20px 48px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;border-bottom:2px solid rgba(86,160,211,.3)}
+  .rs-label{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
+  .rs-label .slabel{color:var(--lb);margin-bottom:0}
+  .rs-label h3{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;margin:0}
+  .riddle-inner{background:rgba(255,255,255,.07);border-left:3px solid var(--sky);padding:12px 18px}
+  .riddle-inner p{color:#dde;font-size:12px;line-height:1.6;margin-bottom:0}
+  .riddle-inner strong{color:var(--lb)}
+  .rs-hint{color:var(--fg3);font-size:10px;font-style:italic;white-space:nowrap;text-align:right}
+ 
+  /* MACRO SNAPSHOT STRIP */
+  .macro-strip{background:var(--navy);border-top:3px solid var(--sky);padding:18px 48px 22px}
+  .macro-strip .snap-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:14px}
+  .macro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .snap-card{background:var(--midb);border-radius:5px;padding:13px 15px}
+  .snap-card .sc-title{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky);margin-bottom:7px}
+  .snap-card .sc-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .snap-card .sc-main{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;line-height:1}
+  .snap-card .sc-unit{font-size:10px;color:var(--paleb);margin-left:3px}
+  .snap-card .sc-delta{font-size:10px;font-weight:700}
+  .snap-card .sc-delta.up{color:#f87171}
+  .snap-card .sc-delta.down{color:#86efac}
+  .snap-card .sc-sub{font-size:10px;color:var(--fg3);line-height:1.4;margin-top:4px}
+  .snap-card .sc-compare{font-size:10px;color:var(--paleb);margin-top:4px;line-height:1.35}
+  .snap-card .sc-compare span{color:#fff;font-weight:600}
+ 
+  .mini-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+  .mini-bar-lbl{font-size:9px;color:var(--paleb);width:68px;flex-shrink:0;line-height:1.3}
+  .mini-bar-bg{flex:1;background:rgba(255,255,255,.1);border-radius:2px;height:5px}
+  .mini-bar-fill{height:5px;border-radius:2px}
+  .mini-bar-val{font-size:9px;font-weight:700;color:#fff;width:30px;text-align:right;flex-shrink:0}
+ 
+  .rate-row{display:flex;align-items:flex-end;gap:3px;margin:5px 0 3px;height:24px}
+  .rate-bar{flex:1;border-radius:2px 2px 0 0;background:var(--sky);opacity:.7}
+  .rate-bar.current{opacity:1;background:var(--lb)}
+  .rate-months{display:flex;justify-content:space-between}
+  .rate-months span{font-size:7.5px;color:var(--fg3)}
+ 
+  /* HIGH FIVE */
+  .hf-band{background:linear-gradient(180deg,var(--navy) 0%,var(--dark1) 35%);padding:22px 48px 0}
+  .hf-band .slabel{color:var(--sky)}
+  .hf-band h2{color:#fff;font-size:16px;margin-bottom:4px}
+  .hf-band .sub{color:var(--paleb);font-size:10px;margin-bottom:14px}
+  .hl{border-bottom:1px solid rgba(255,255,255,.07);padding:11px 0;display:grid;grid-template-columns:26px 1fr;gap:4px}
+  .hl:last-child{border-bottom:none;padding-bottom:22px}
+  .hln{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:#fff;line-height:1;padding-top:2px}
+  .htag{display:inline-block;font-size:7px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-bottom:3px}
+  .tma{background:rgba(0,153,255,.2);color:var(--paleb)}
+  .tsc{background:rgba(102,178,255,.15);color:#99d6ff}
+  .treg{background:rgba(0,115,230,.2);color:#aad4ff}
+  .tpe{background:rgba(0,80,117,.4);color:var(--lb)}
+  .tins{background:rgba(0,160,80,.2);color:#86efac}
+  .hlh{font-weight:600;color:#fff;font-size:11.5px;margin-bottom:2px;line-height:1.3}
+  .hla{font-size:10.5px;color:#aab;line-height:1.4;margin-bottom:2px}
+  .hlsw{font-size:10px;color:var(--sky);font-weight:600}
+ 
+  /* RETROSPECTIVE */
+  .retro-band{background:var(--bgl);border-top:3px solid var(--sky);padding:18px 48px 22px}
+  .retro-band .slabel{color:var(--blue)}
+  .retro-band h2{color:var(--navy);font-size:16px;margin-bottom:4px}
+  .retro-band .sub{color:var(--fg2);font-size:10px;margin-bottom:14px}
+  .hist-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ 
+  .hcard{background:var(--bg);border-top:3px solid var(--blue);border-radius:0 0 4px 4px;padding:14px 16px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+  .hcard.accent-top{border-top-color:var(--sky)}
+  .hcard h4{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3}
+  .hcard p{font-size:11px;color:var(--ink);margin-bottom:8px;line-height:1.5}
+  .hcard p:last-of-type{margin-bottom:10px}
+  .hcard p em{color:var(--midb);font-style:italic}
+  .pill{display:block;background:var(--bgl);border-left:3px solid var(--sky);padding:6px 10px;font-size:10px;color:var(--navy);font-style:italic;line-height:1.4}
+ 
+  /* PAGE 2 */
+  .p2{padding:28px 0}
+ 
+  .metric-hero{background:linear-gradient(135deg,var(--navy),var(--midb));border-radius:8px;padding:22px 26px;margin:18px 0;display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center}
+  .m-unit{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:4px}
+  .m-num{font-family:'Playfair Display',serif;font-size:58px;font-weight:900;color:var(--sky);line-height:1}
+  .m-name{font-family:'Playfair Display',serif;font-size:16px;color:#fff;font-weight:700;margin:4px 0 8px}
+  .m-desc{color:var(--paleb);font-size:11px;line-height:1.5;margin-bottom:0}
+  .bench-section{margin-top:16px}
+  .bench-label-row{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:8px}
+  .bench-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+  .bench-lbl{font-size:10px;color:var(--paleb);width:110px;flex-shrink:0;line-height:1.3}
+  .bench-bg{flex:1;background:rgba(255,255,255,.12);border-radius:3px;height:7px}
+  .bench-fill{height:7px;border-radius:3px}
+  .bench-val{font-size:10px;font-weight:700;color:#fff;width:36px;text-align:right;flex-shrink:0}
+  .m-right p{color:var(--paleb);font-size:11.5px;line-height:1.55;margin-bottom:8px}
+  .m-right p:last-child{margin-bottom:0}
+  .m-right strong{color:#fff}
+  .m-right em{color:var(--lb)}
+ 
+  .tech-layout{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+  .tech-body p{color:var(--ink);font-size:13px;line-height:1.6}
+  .tech-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px}
+  .ts-card{background:var(--bgl);border-top:3px solid var(--blue);border-radius:0 0 4px 4px;padding:12px 14px}
+  .ts-card .ts-label{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:4px}
+  .ts-card .ts-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:2px}
+  .ts-card .ts-desc{font-size:10.5px;color:var(--ink);line-height:1.4}
+  .pe-lens{background:var(--bgl);border-left:3px solid var(--sky);padding:12px 14px;margin-top:14px;border-radius:0 4px 4px 0}
+  .pe-lens .lens-label{font-size:9px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+  .pe-lens p{font-size:11.5px;color:var(--dg);margin-bottom:0;line-height:1.5}
+ 
+  .callout{background:var(--navy);border-radius:8px;padding:20px 24px;margin:18px 0}
+  .callout h3{color:var(--sky);font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-top:0;margin-bottom:8px}
+  .callout p{color:var(--paleb);font-size:12px;margin-bottom:7px;line-height:1.6}
+  .callout p:last-child{margin-bottom:0}
+  .callout strong{color:#fff}
+  .callout em{color:var(--lb)}
+ 
+  .answer{background:var(--bgl);border:2px dashed var(--blue);border-radius:6px;padding:16px 20px;margin:18px 0 0}
+  .answer .alabel{color:var(--blue);font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:6px}
+  .answer p{font-size:12px;color:var(--dg);margin-bottom:0}
+  .answer strong{color:var(--navy)}
+ 
+  .foot{background:var(--navy);padding:28px 48px;color:var(--paleb);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .ft-brand{font-family:'Playfair Display',serif;color:var(--lb);font-size:18px;font-weight:700}
+  .ft-tag{font-size:10px;color:var(--paleb);margin-top:3px;letter-spacing:.5px}
+  .ft-disclaimer{color:var(--fg3);font-size:9.5px;line-height:1.6;max-width:440px}
+ 
+  @media print{
+    .print-bar{display:none!important}
+    body{background:#fff;margin:0;padding:0}
+    .page-frame{max-width:100%;box-shadow:none;margin:0}
+    @page{margin:.4in;size:letter portrait}
+  }
+  @media(max-width:720px){
+    .print-bar,.mast,.foot{padding-left:24px;padding-right:24px}
+    .hero{padding:32px 24px 28px}
+    .hero h1{font-size:26px}
+    .container{padding:0 20px 32px}
+    .riddle-strip{padding:18px 24px;grid-template-columns:1fr;gap:12px}
+    .rs-hint{text-align:left}
+    .macro-strip{padding:16px 24px 18px}
+    .macro-grid{grid-template-columns:1fr 1fr}
+    .hf-band{padding:18px 24px 0}
+    .retro-band{padding:16px 24px 18px}
+    .hist-grid{grid-template-columns:1fr}
+    .pb{padding-left:24px}
+    .metric-hero{grid-template-columns:1fr}
+    .tech-layout{grid-template-columns:1fr}
+    .tech-stats{grid-template-columns:1fr 1fr}
+    .foot{flex-direction:column;align-items:flex-start;padding:22px 24px}
+    .ft-disclaimer{max-width:100%}
+  }
+</style>
+</head>
+<body>
+ 
+<div class="print-bar">
+<a href="../index.html" class="back-link">Back to Library</a>
+</div>
+ 
+<div class="page-frame">
+ 
+<div class="mast">
+  <div class="logo">The Square <span>Foot</span></div>
+  <div class="mast-meta">Vol. 1 · Issue 3 · May 2026<br><strong>Intelligence for Roofing Executives &amp; PE Investors</strong></div>
+</div>
+ 
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">May 2026 Edition</div>
+    <h1>Top-Line <em>Ridges</em> &amp; Bottom-Line <em>Leaks</em></h1>
+    <p class="tagline">M&amp;A · Market Intelligence · Historical Perspective · The Edge · Key Metrics</p>
+  </div>
+</div>
+ 
+<div class="pb">
+  <div class="pbn">1</div>
+  <div class="pbt">The Hook, Market Overview &amp; Legacy</div>
+</div>
+ 
+<!-- HORIZONTAL RIDDLE STRIP -->
+<div class="riddle-strip">
+  <div class="rs-label">
+    <div class="slabel">The Top Out</div>
+    <h3>Riddle of<br>the Month</h3>
+  </div>
+  <div class="riddle-inner">
+    <p><strong>I show up in every supplement negotiation and on every investment committee memo. In roofing, I widen every time an adjuster underpays a claim and a contractor goes back to fight for more dollars. In private equity, I widen every time a platform's trailing revenue outpaces its actual cash collection. Close me on a roof and you stop the leaks. Close me on a portfolio and you unlock the real EBITDA. What am I?</strong></p>
+  </div>
+  <div class="rs-hint">↓ Answer revealed<br>at the end of<br>this issue.</div>
+</div>
+ 
+<!-- MACRO SNAPSHOT STRIP -->
+<div class="macro-strip">
+  <div class="snap-label">Macro Snapshots — May 2026</div>
+  <div class="macro-grid">
+ 
+    <div class="snap-card">
+      <div class="sc-title">Construction Unemployment</div>
+      <div class="sc-row">
+        <div><span class="sc-main">5.1</span><span class="sc-unit">%</span></div>
+        <div class="sc-delta up">▲ +0.3 vs. Apr</div>
+      </div>
+      <div class="sc-compare">National avg: <span>4.3%</span> &nbsp;|&nbsp; Prior yr: <span>4.7%</span></div>
+      <div class="sc-sub">Construction &amp; extraction occupations running 80+ bps above national average. Roofing trades tightest in hail corridor states as spring storm season accelerates demand.</div>
+    </div>
+ 
+    <div class="snap-card">
+      <div class="sc-title">Core Materials Price Index</div>
+      <div class="sc-sub" style="margin-bottom:6px">30-day movement vs. prior month</div>
+      <div class="mini-bar-row">
+        <div class="mini-bar-lbl">Asphalt shingle</div>
+        <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:82%;background:#f87171"></div></div>
+        <div class="mini-bar-val">+7.1%</div>
+      </div>
+      <div class="mini-bar-row">
+        <div class="mini-bar-lbl">TPO / single-ply</div>
+        <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:50%;background:#f87171"></div></div>
+        <div class="mini-bar-val">+3.8%</div>
+      </div>
+      <div class="mini-bar-row">
+        <div class="mini-bar-lbl">Metal roofing</div>
+        <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:72%;background:#f87171"></div></div>
+        <div class="mini-bar-val">+5.4%</div>
+      </div>
+      <div class="mini-bar-row">
+        <div class="mini-bar-lbl">Fasteners</div>
+        <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:20%;background:#fbbf24"></div></div>
+        <div class="mini-bar-val">+1.2%</div>
+      </div>
+      <div class="mini-bar-row" style="margin-bottom:0">
+        <div class="mini-bar-lbl">Chemical inputs</div>
+        <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:65%;background:#f87171"></div></div>
+        <div class="mini-bar-val">+5.0%</div>
+      </div>
+    </div>
+ 
+    <div class="snap-card">
+      <div class="sc-title">Interest Rate Trend — Fed Funds</div>
+      <div class="sc-row">
+        <div><span class="sc-main">4.25</span><span class="sc-unit">–4.50%</span></div>
+        <div class="sc-delta" style="color:var(--fg3)">— Held</div>
+      </div>
+      <div class="rate-row">
+        <div class="rate-bar" style="height:40%"></div>
+        <div class="rate-bar" style="height:52%"></div>
+        <div class="rate-bar" style="height:65%"></div>
+        <div class="rate-bar" style="height:78%"></div>
+        <div class="rate-bar" style="height:88%"></div>
+        <div class="rate-bar" style="height:100%"></div>
+        <div class="rate-bar current" style="height:100%"></div>
+      </div>
+      <div class="rate-months">
+        <span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span>
+      </div>
+      <div class="sc-sub" style="margin-top:5px">Held for 5th consecutive meeting at Apr 28–29 FOMC. Next meeting June 16–17. CME markets price first cut probability at ~9% for June; persistent inflation and Middle East uncertainty keeping cuts off the table near-term.</div>
+    </div>
+ 
+    <div class="snap-card">
+      <div class="sc-title">Verisk 2026 U.S. Roof Report</div>
+      <div class="sc-row">
+        <div><span class="sc-main">+33</span><span class="sc-unit">% repl.</span></div>
+        <div class="sc-delta up">▲ severity</div>
+      </div>
+      <div class="sc-compare">Avg replacement: <span>$17,631</span> &nbsp;|&nbsp; Avg repair: <span>$4,699</span></div>
+      <div class="sc-sub" style="margin-top:4px">Released May 29. Despite a 20% drop in 2025 claims volume, replacement cost severity rose 33% and repair costs rose 25% vs. the prior 4-year average. 38% of U.S. roofs rated moderate to poor condition — loss costs 60% higher than good-condition roofs. Hail below catastrophe threshold driving frequency.</div>
+    </div>
+ 
+  </div>
+</div>
+ 
+<!-- HIGH FIVE -->
+<div class="hf-band">
+  <div class="slabel">May 2026 Market Snapshot</div>
+  <h2 style="color:#fff;font-size:16px;margin-bottom:4px">The Monthly High-Five</h2>
+  <p class="sub">The moves that matter from May 2026.</p>
+
+  <div class="hl">
+    <div class="hln">1</div>
+    <div>
+      <span class="htag tma">M&amp;A</span>
+      <div class="hlh">QXO Releases TopBuild Investor Q&amp;A — Frames "Own the Job Site" Integration Strategy</div>
+      <div class="hla">On May 11, QXO released its investor Q&amp;A outlining the strategic rationale for its pending $17B TopBuild acquisition. Brad Jacobs framed the deal as a move to "own the job site" — leveraging TopBuild's roughly 22,000 daily job-site visits to cross-sell, optimize inventory, and expand bundled offerings. QXO targets mid- to high-single-digit organic growth post-close. TopBuild released Q1 2026 financials on May 5 but cancelled its earnings call, reflecting transition-period protocols. Meanwhile, Tecta America — the nation's largest commercial roofing contractor, valued at $3–4B per Bloomberg sources — continues to explore strategic options with Altas Partners and Leonard Green &amp; Partners having appointed advisers. The commercial roofing exit cycle is now formally underway.</div>
+      <div class="hlsw">⚡ The distribution layer has been claimed by QXO. The commercial contractor layer is now in motion with Tecta. The institutional capital that built the trades roll-up thesis is beginning its exit sequence.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="hln">2</div>
+    <div>
+      <span class="htag tsc">Materials</span>
+      <div class="hlh">June Manufacturer Price Increases Announced — GAF Cites "Sustained Surge" in Raw Material Costs</div>
+      <div class="hla">GAF's June 2026 distributor letter cites "sustained surge in key raw material costs" as the driver for a new round of increases, with CertainTeed issuing a separate freight surcharge increase effective May 11. The compounding effect: tariffs on MDI adhesive components (60%), TCPP flame retardants (272.7%), Section 232 steel/aluminum (25%), and petroleum-based asphalt remain fully in force. National average installed project cost on a 2,000 sq ft home has reached $20,500–$21,500. Construction material prices are 43.4% above February 2020 levels per NRCA data. Every bid submitted before May absorbs the gap on installation in June.</div>
+      <div class="hlsw">⚡ The tariff environment is broader and more structural than prior cycles. MDI and TCPP are not getting exemptions — they're domestic manufacturers' raw inputs from global supply chains. This isn't a temporary spike; it's a permanent cost floor reset.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="hln">3</div>
+    <div>
+      <span class="htag tins">Insurance</span>
+      <div class="hlh">Verisk 2026 U.S. Roof Report: Severity Rising Even as Claims Volume Falls — 38% of U.S. Roofs in Poor Condition</div>
+      <div class="hla">Verisk's May 29 report is the most significant insurance-roofing data release of the year. Despite a near 20% decline in overall 2025 claims volume, average residential replacement cost reached $17,631 — a 33% jump vs. the prior 4-year average. Repair costs hit $4,699, up 25%. The culprit: sub-catastrophe hail events accumulating damage on an aging roof stock — 38% of U.S. roofs now rated moderate to poor condition, which Verisk data shows carry 60% higher loss costs than well-maintained roofs. In hail states, 57% of properties have roofs 9 years old or newer vs. just 38% in non-hail states, highlighting faster replacement cycles in storm corridors. The Midwest and Northeast carry the oldest roof inventory: 17–18% of roofs are 31+ years old.</div>
+      <div class="hlsw">⚡ For supplement-heavy operators in the hail corridor, this report is tailwind. For carriers, it's a pricing signal. Operators who document roof condition thoroughly at inspection are building the evidentiary foundation for supplement recovery before the adjuster even shows up.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="hln">4</div>
+    <div>
+      <span class="htag tpe">PE Activity</span>
+      <div class="hlh">Founders Advisors Releases May Roofing M&amp;A Update — Residential Platforms Command 5–7x EBITDA; Commercial at Premium</div>
+      <div class="hla">Founders Advisors' May 13 roofing M&amp;A update confirms persistent buyer appetite despite macro headwinds: residential roofing platforms are transacting at 4–7x EBITDA for bolt-ons, with PE-backed strategic buyers competing against standalone sponsors and corporate acquirers. Per industry tracking, 56+ PE-backed contractor platforms remain active, with Confluence Point (EXP), Royalty Roofing USA, Ridgeline, Vertex Service Partners, and Omnia Exterior Solutions (CCMP) all continuing bolt-on cadence. KPMG's 2026 Roofing Contracting report confirmed 2025 transaction volume reached all-time highs. Axial's live platform shows 92 companies currently marketed, 16 buyers competing per deal, and 1,970 investors actively seeking roofing acquisitions.</div>
+      <div class="hlsw">⚡ The question is no longer volume — it's quality. With 92 companies actively marketed, the buyer's diligence bar has risen. Gain/fade, supplement recovery %, and IC documentation are now table stakes in Q&amp;A, not optional disclosures.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="hln">5</div>
+    <div>
+      <span class="htag treg">Regulatory</span>
+      <div class="hlh">DOL Independent Contractor Final Rule Expected H2 2026 — State ABC Tests Remain the Operative Risk</div>
+      <div class="hla">Following the close of the 60-day comment period on April 28, the DOL's NPRM to rescind the 2024 independent contractor rule and restore a modified 2021 two-factor framework (control + opportunity for profit/loss) moves toward finalization. The SBA Office of Advocacy estimated the rescission saves small businesses approximately $2.31B over 10 years. Critically: the 2024 rule technically remains operative for private FLSA litigation, and state ABC tests in California, New Jersey, and Illinois are unaffected by federal rulemaking. Post-Loper Bright, courts are not bound by DOL deference. PE diligence teams are now requesting IC classification audits as a standard Q&amp;A line item alongside gain/fade and supplement recovery.</div>
+      <div class="hlsw">⚡ Federal direction is favorable but not dispositive. If your platform has material revenue in CA, NJ, or IL and is using 1099 labor, the federal rule change doesn't protect you. The audit window is open — use it.</div>
+    </div>
+  </div>
+</div>
+ 
+<!-- RETROSPECTIVE -->
+<div class="retro-band">
+  <div class="slabel">Retrospective</div>
+  <h2 style="font-size:16px;margin-bottom:4px">Lessons from the Ladder</h2>
+  <p class="sub">History this industry learned from — or repeats.</p>
+  <div class="hist-grid">
+    <div class="hcard">
+      <h4>The Supplement Suppression Era (2018–2022): When Carriers Won by Attrition</h4>
+      <p>Through the late 2010s and into the pandemic era, a number of large national carriers systematically tightened supplement approval timelines, introduced proprietary scope tools, and trained field adjusters to challenge line items that had previously been accepted as standard. Contractors who lacked documentation discipline — no photos at pre-inspection, no Xactimate line-item justification, no public adjuster relationships — saw supplement recovery rates fall to the 30–40% range, leaving material dollars on the table on nearly every insurance job. The operators that survived and thrived built a supplement desk as a dedicated function, not an afterthought. By 2023–2024, supplement recovery became a competitive differentiator, not just an operational nicety.</p>
+      <div class="pill">🎓 Supplement recovery is margin recovery. In a high-severity, rising-cost environment, leaving 20 cents of every insurance dollar unfiled is the equivalent of bidding your retail jobs at a 20-point discount.</div>
+    </div>
+    <div class="hcard accent-top">
+      <h4>The 2008–2010 Housing Crash: What the Trades Roll-Up Survivors Had in Common</h4>
+      <p>The first wave of home services consolidation hit a wall between 2008 and 2010 as new construction collapsed and insurance restoration was not yet institutionalized as a revenue base. Platforms with heavy new-construction exposure saw EBITDA fall 40–60% in 18 months; those with re-roof and maintenance-driven recurring revenue contracted only modestly. The PE sponsors who recouped capital were those invested in platforms with diversified revenue streams — re-roof, maintenance contracts, and commercial service — independent of the housing transaction cycle. Storm revenue <em>and</em> new-construction revenue are cyclical. Maintenance and re-roof are not.</p>
+      <div class="pill">🎓 The platform that can't articulate its non-cyclical revenue base in a down market will lose its multiple before it loses its customers. Underwrite the trough, not the peak.</div>
+    </div>
+  </div>
+</div>
+ 
+<!-- PAGE 2 BAR -->
+<div class="pb">
+  <div class="pbn">2</div>
+  <div class="pbt">The Edge</div>
+</div>
+ 
+<div class="container">
+  <div class="p2">
+ 
+    <div class="slabel">Key Metric</div>
+    <h2>Supplement Recovery %</h2>
+    <hr class="rule">
+    <div class="metric-hero">
+      <div class="m-left">
+        <div class="m-unit">Recovery Ratio</div>
+        <div class="m-num">SR%</div>
+        <div class="m-name">Insurance Supplement Dollars Recovered vs. Filed</div>
+        <p class="m-desc">The margin metric hiding in your insurance workflow. Supplement recovery % tells you how effectively your team converts supplement filings into paid dollars — and whether your documentation is strong enough to survive carrier pushback.</p>
+        <div class="bench-section">
+          <div class="bench-label-row">Industry Benchmarks</div>
+          <div class="bench-row">
+            <div class="bench-lbl">Critical deficit</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:28%;background:var(--mg)"></div></div>
+            <div class="bench-val">&lt;40%</div>
+          </div>
+          <div class="bench-row">
+            <div class="bench-lbl">Watch list</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:52%;background:var(--lb)"></div></div>
+            <div class="bench-val">40–60%</div>
+          </div>
+          <div class="bench-row">
+            <div class="bench-lbl">PE-ready discipline</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:72%;background:var(--sky)"></div></div>
+            <div class="bench-val">60–80%</div>
+          </div>
+          <div class="bench-row">
+            <div class="bench-lbl">Top-quartile platform</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:100%;background:#fff"></div></div>
+            <div class="bench-val">&gt;80%</div>
+          </div>
+        </div>
+      </div>
+      <div class="m-right">
+        <p><strong>What it measures:</strong> The ratio of supplement dollars actually paid by the carrier (or collected from the homeowner via negotiated settlement) versus the total dollars filed in supplement requests. Calculated at the job level and rolled to a trailing-twelve portfolio view. A job where $4,200 in supplements were filed and $2,940 was collected is a 70% recovery rate. Tracked per adjuster, per carrier, and per market, it reveals where the documentation is weak and where the carrier relationships need investment.</p>
+        <p><strong>Why PE buyers care:</strong> In an insurance-restoration-heavy platform, supplement recovery % is often the single largest addressable margin opportunity in the business. The Verisk 2026 U.S. Roof Report confirmed that replacement severity is up 33% — but carriers don't automatically write those costs into initial estimates. The delta between Verisk-benchmarked replacement costs and what an average carrier writes in the first pass can be $2,000–$5,000 per job. A platform doing 1,000 insurance jobs per year at a 50% vs. 75% recovery rate on a $3,000 average supplement opportunity is leaving $750,000 in annual EBITDA on the table. At a 7x multiple, that's $5.25M in enterprise value not captured — before diligence even opens.</p>
+        <p><strong>May 2026 relevance:</strong> The Verisk report, rising materials costs (asphalt shingle inputs up 7.1% in May), and a below-average storm forecast combine to create a specific pressure point: fewer total claims but higher individual claim values, in a rising-cost environment where initial adjuster estimates increasingly lag true replacement cost. Operators with supplement desks running documented Xactimate line-item workflows and photo-linked inspection reports are capturing the gap. Operators handling supplements reactively are subsidizing the difference out of job margin.</p>
+        <p style="margin-bottom:0"><strong>Watch-out:</strong> Supplement recovery % can be inflated by filing overly aggressive initial supplements that get partially paid — a 90% recovery rate on a $500 supplement is less valuable than a 75% rate on a $4,000 supplement. Pair this metric with average supplement filed per job and total supplement revenue as a % of insurance revenue to ensure the denominator is meaningful, not manufactured.</p>
+      </div>
+    </div>
+ 
+    <div class="slabel" style="margin-top:20px">May Tech Spotlight</div>
+    <h2>Things To Watch: HOVER</h2>
+    <p style="font-size:12px;color:var(--mg);margin-bottom:4px">Each month we spotlight one tool, platform, or technology worth understanding — whether you're an operator, a PE investor evaluating platforms, or both.</p>
+    <hr class="rule">
+ 
+    <div class="tech-layout">
+      <div class="tech-body">
+        <p>If aerial measurement reports have been your estimating foundation, <strong style="color:var(--navy)">HOVER</strong> is the platform that's quietly changed the competitive calculus in 2026. HOVER is positioning itself not as a measurement vendor but as an end-to-end connected platform for the full renovation workflow — a significant repositioning from its origins as a smartphone-photo-to-3D-model tool. The January 13, 2026 Connected Platform launch is the pivot that matters: HOVER now unifies measurement, automated estimating, homeowner-ready proposals, and e-signature in a single solution powered by Hover AI and a spatial database of over 10 million residential properties, replacing up to five separate tools in an operator's stack.</p>
+        <p>What makes HOVER relevant in May 2026 is where it wins that no aerial provider can replicate: new construction and heavily-treed lots. EagleView and Nearmap are imagery-dependent — if the satellite pass hasn't captured the property, or dense tree cover obscures the roof plane, the measurement is either unavailable or degraded. HOVER requires only smartphone photos taken on-site, then generates a 3D model in hours. The January Connected Platform update added 1,000+ workflow integrations (including JobNimbus, AccuLynx, ABC Supply, Beacon Pro, CompanyCam, and Xactimate-compatible ESX export), making HOVER's output plug directly into the production and insurance workflows that storm-restoration operators already run. The pricing model is per-project (pay-as-you-go), meaning there's no monthly commitment risk — a significant advantage for platforms evaluating technology spend against volatile storm-driven volume.</p>
+        <p>The watch-out is per-scan economics at scale. At high volume, per-project pricing compounds: a platform running 500 HOVER scans per month at $25–$50 per scan is spending $12,500–$25,000 monthly before any other software cost. For platforms where aerial imagery covers the majority of service geography, the right stack is HOVER as a complement — for new construction, tree-coverage fallback, and insurance interior documentation — not as the primary measurement source. The diligence question on a target running HOVER exclusively isn't <em>"what does it cost"</em> but <em>"what percentage of their jobs require on-site scanning vs. aerial, and is the per-scan cost embedded in job margin or absorbed as overhead?"</em></p>
+        <div class="tech-stats">
+          <div class="ts-card">
+            <div class="ts-label">Platform Launch</div>
+            <div class="ts-num">Jan</div>
+            <div class="ts-desc">Connected Platform launched Jan 13, 2026 — unified measurement, estimating, proposals, and e-signature in one workflow</div>
+          </div>
+          <div class="ts-card">
+            <div class="ts-label">Property Database</div>
+            <div class="ts-num">10M+</div>
+            <div class="ts-desc">Residential properties in HOVER's spatial database — the AI foundation for automated estimating from 3D scan data</div>
+          </div>
+          <div class="ts-card">
+            <div class="ts-label">Integration Reach</div>
+            <div class="ts-num">1,000+</div>
+            <div class="ts-desc">Workflow integrations including AccuLynx, JobNimbus, ABC Supply, Beacon Pro, CompanyCam, Xactimate ESX export</div>
+          </div>
+        </div>
+        <div class="pe-lens">
+          <div class="lens-label">PE Investor Lens</div>
+          <p>A target running HOVER as a primary measurement tool signals market sophistication — typically a storm-restoration operator with a mix of insured and retail jobs including new construction and wooded-suburb markets where aerial imagery has coverage gaps. The more interesting diligence question is whether HOVER's per-scan cost is tracked at the job level as a direct cost-of-revenue line item, or buried in overhead. Platforms that job-cost software accurately are the ones whose EBITDA survives diligence intact. Platforms that don't are the ones with unexplained margin compression on the SaaS tab of the QoE.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--navy);border-radius:8px;padding:18px">
+          <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:12px">At a Glance</div>
+          <div style="border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px">
+            <div style="font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Platform</div>
+            <div style="font-size:12px;font-weight:600;color:#fff">HOVER</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px">
+            <div style="font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Category</div>
+            <div style="font-size:12px;color:var(--paleb)">3D property measurement, automated estimating, and connected proposal platform for exterior contractors</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px">
+            <div style="font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Key Capability</div>
+            <div style="font-size:12px;color:var(--paleb)">Smartphone-photo-to-3D model workflow — works on new construction and tree-obscured lots where aerial imagery cannot; Jan 2026 relaunch added automated estimating and e-signature proposals</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px">
+            <div style="font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">What's New in 2026</div>
+            <div style="font-size:12px;color:var(--paleb)">Connected Platform launch Jan 13 unifies full renovation workflow; Hover AI automating estimates from 3D models; 1,000+ integrations now live including Xactimate ESX export</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px">
+            <div style="font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Best For</div>
+            <div style="font-size:12px;color:var(--paleb)">Storm-restoration operators in wooded markets; platforms with new-construction revenue mix; insurance restoration teams that need Xactimate-compatible output and homeowner visualization for close-at-the-door proposals</div>
+          </div>
+          <div>
+            <div style="font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Watch-Out</div>
+            <div style="font-size:12px;color:var(--paleb)">Per-scan pricing compounds at high volume. HOVER is best as a complement to aerial measurement for new construction and coverage-gap fallback — not a full replacement for EagleView in markets with strong imagery coverage. Job-cost the per-scan fee; don't let it hide in overhead.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="callout" style="margin-top:24px">
+      <h3>The Square Foot Bottom Line — May 2026</h3>
+      <p>May 2026 confirmed what April's price increases telegraphed: the roofing industry is navigating a structural cost reset, not a cyclical spike. <strong>GAF's June distributor letter citing "sustained surge in raw material costs" and CertainTeed's May 11 freight surcharge</strong> represent the second consecutive month of manufacturer increases landing on top of still-active Section 232 steel/aluminum and Section 301 tariffs. MDI adhesive components face 60% anti-dumping duties; TCPP flame retardants face 272.7% duties. These are inputs to domestically manufactured shingles — not finished imports — which means IEEPA refund pathways offer no relief here. The national average installed project has moved to $20,500–$21,500. The cost floor has reset.</p>
+      <p>The most significant data release of the month was Verisk's May 29 U.S. Roof Report: average residential replacement cost reached $17,631 — a 33% jump over the prior four-year average — despite a 20% decline in 2025 claims volume. <strong>Severity is rising faster than frequency is falling</strong>, which means insurance-restoration operators are working fewer jobs at higher average ticket values against a carrier community that is increasingly scrutinizing supplement line items. The 38% of U.S. roofs in moderate-to-poor condition represent both an opportunity (demand pipeline) and a diligence risk (aging stock in PE-platform service areas may carry deferred maintenance that surprises on scope and cost). <em>Supplement recovery % is the margin lever hiding in plain sight on every insurance-heavy platform.</em></p>
+      <p>On the M&amp;A front, QXO's May 11 investor Q&amp;A put the integration thesis on the record: "own the job site" through cross-sell and bundled offerings, targeting mid-to-high-single-digit organic growth. The TopBuild deal is pending shareholder vote. Simultaneously, Tecta America's sale process — with a $3–4B valuation floated by Bloomberg — signals that the PE-backed commercial roofing exit cycle is now formally open. The operators best positioned entering June are those who spent May doing three things: <strong>building or auditing their supplement desk workflow before the next storm event, tracking materials cost at the job level to capture the May/June manufacturer increase gap, and getting IC documentation current ahead of anticipated DOL final rule publication later in 2026.</strong> Everyone else is reacting to a market that has already moved.</p>
+    </div>
+ 
+    <div class="answer">
+      <div class="alabel">Riddle Answer</div>
+      <p><strong>Answer: Gap.</strong> In roofing, the gap is the opening between a roof surface and its flashing, cap, or termination detail — leave it open and water infiltrates the assembly at the weakest point, compounding damage far beyond the original defect. In private equity and insurance restoration, the gap is the delta between what was filed (or projected) and what was actually collected — leave it untracked and margin leaks out of every insurance job, compounding across a portfolio until a diligence team surfaces it as a structural discount to enterprise value. On a roof and on a balance sheet, the gap never closes itself. It has to be found, measured, and deliberately sealed.</p>
+    </div>
+ 
+  </div>
+</div>
+ 
+<div class="foot">
+  <div>
+    <div class="ft-brand">The Square Foot</div>
+    <div class="ft-tag">Vol. 1 · Issue 3 · May 2026 · Intelligence for Roofing Executives &amp; PE Investors</div>
+  </div>
+  <div class="ft-disclaimer">For informational purposes only. Not investment advice. Data sourced from QXO investor Q&amp;A (May 11, 2026) and SEC filings; Verisk 2026 U.S. Roof Report (May 29, 2026); Founders Advisors Roofing M&amp;A Update (May 13, 2026); GAF and CertainTeed distributor letters (May–June 2026); HOVER Connected Platform launch materials (Jan 13, 2026); KPMG Corporate Finance 2026 Roofing Contracting Report; Roofing Contractor Magazine; Bloomberg (Tecta America strategic options, Nov 2024); U.S. Bureau of Labor Statistics Employment Situation (May 8, 2026); Federal Reserve FOMC Minutes (Apr 28–29, 2026); CME FedWatch; RoofVista 2026 Roofing Tariff Guide; Family First Exteriors; NRCA; Axial live platform data; ctacquisitions.com PE Roll-Up Tracker 2026; U.S. Department of Labor NPRM (Feb 27, 2026); SBA Office of Advocacy; AGC. Past performance does not guarantee future results.</div>
+</div>
+ 
+</div>
+</body>
+</html>
