@@ -42,15 +42,15 @@
     letter-spacing:-0.5px;
   }
   .logo span{color:var(--lb)}
-  .mast-meta{
-    color:var(--fg3);
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1.2px;
-    text-align:right;
-    line-height:1.7;
+
+  /* Blue Ops logo in masthead */
+  .mast-logo img{
+    height:36px;
+    width:auto;
+    display:block;
+    /* white version via CSS invert so it reads on the navy bg */
+    filter:brightness(0) invert(1);
   }
-  .mast-meta strong{color:var(--lb);font-weight:600}
 
   /* ── HERO ── */
   .hero{
@@ -105,7 +105,7 @@
     line-height:1.2;
   }
 
-  /* ── INTRO LEAD (above forthcoming) ── */
+  /* ── INTRO LEAD ── */
   .lead-text{
     color:var(--ink);
     font-size:13.5px;
@@ -144,41 +144,14 @@
     gap:18px;
   }
   .macro-banner .macro-icon{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:var(--sky);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Playfair Display',serif;
-    font-weight:900;
-    font-size:18px;
-    flex-shrink:0;
+    width:42px;height:42px;border-radius:50%;background:var(--sky);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-weight:900;font-size:18px;flex-shrink:0;
   }
   .macro-banner .macro-text{flex:1}
-  .macro-banner .macro-label{
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--lb);
-    margin-bottom:3px;
-  }
-  .macro-banner .macro-name{
-    font-family:'Playfair Display',serif;
-    font-size:17px;
-    font-weight:700;
-    color:#fff;
-    margin-bottom:2px;
-  }
-  .macro-banner .macro-desc{
-    color:var(--paleb);
-    font-size:12px;
-    line-height:1.5;
-    margin:0;
-  }
+  .macro-banner .macro-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:3px;}
+  .macro-banner .macro-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:2px;}
+  .macro-banner .macro-desc{color:var(--paleb);font-size:12px;line-height:1.5;margin:0;}
 
   .pillars-grid{
     display:grid;
@@ -187,365 +160,98 @@
     margin-bottom:48px;
   }
   .pillar{
-    background:#fff;
-    border-radius:6px;
-    padding:18px 20px 20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
-    border-top:3px solid var(--blue);
-    display:flex;
-    flex-direction:column;
+    background:#fff;border-radius:6px;padding:18px 20px 20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid var(--blue);
+    display:flex;flex-direction:column;
   }
-  .pillar .pillar-num{
-    font-family:'Playfair Display',serif;
-    font-size:30px;
-    font-weight:900;
-    color:var(--paleb);
-    line-height:1;
-    margin-bottom:6px;
-  }
-  .pillar h4{
-    font-family:'Playfair Display',serif;
-    font-size:15px;
-    font-weight:700;
-    color:var(--navy);
-    line-height:1.25;
-    margin-bottom:8px;
-  }
-  .pillar p{
-    color:var(--ink);
-    font-size:12px;
-    line-height:1.55;
-    margin-bottom:0;
-  }
+  .pillar .pillar-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--paleb);line-height:1;margin-bottom:6px;}
+  .pillar h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:8px;}
+  .pillar p{color:var(--ink);font-size:12px;line-height:1.55;margin-bottom:0;}
   .pillar p em{color:var(--midb);font-style:italic}
 
   /* ── FEATURED ISSUE ── */
   .featured{
-    background:#fff;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
-    margin-bottom:48px;
-    display:grid;
-    grid-template-columns:280px 1fr;
-    transition:box-shadow .2s ease, transform .2s ease;
-    text-decoration:none;
-    color:inherit;
+    background:#fff;border-radius:8px;overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:48px;
+    display:grid;grid-template-columns:280px 1fr;
+    transition:box-shadow .2s ease,transform .2s ease;
+    text-decoration:none;color:inherit;
   }
-  .featured:hover{
-    box-shadow:0 8px 30px rgba(0,0,0,.14);
-    transform:translateY(-2px);
-  }
+  .featured:hover{box-shadow:0 8px 30px rgba(0,0,0,.14);transform:translateY(-2px);}
   .featured-cover{
     background:linear-gradient(135deg,var(--dark1),var(--navy));
-    padding:32px 28px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    color:#fff;
+    padding:32px 28px;display:flex;flex-direction:column;
+    justify-content:space-between;color:#fff;
   }
-  .featured-cover .cover-badge{
-    display:inline-block;
-    background:var(--sky);
-    color:#fff;
-    font-size:8px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    padding:3px 8px;
-    border-radius:2px;
-    align-self:flex-start;
-    margin-bottom:auto;
-  }
-  .featured-cover .issue-num{
-    font-family:'Playfair Display',serif;
-    font-size:54px;
-    font-weight:900;
-    color:#fff;
-    line-height:1;
-    margin-top:24px;
-    margin-bottom:6px;
-  }
+  .featured-cover .cover-badge{display:inline-block;background:var(--sky);color:#fff;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border-radius:2px;align-self:flex-start;margin-bottom:auto;}
+  .featured-cover .issue-num{font-family:'Playfair Display',serif;font-size:54px;font-weight:900;color:#fff;line-height:1;margin-top:24px;margin-bottom:6px;}
   .featured-cover .issue-num span{color:var(--lb)}
-  .featured-cover .issue-month{
-    font-family:'Playfair Display',serif;
-    font-size:18px;
-    color:var(--lb);
-    font-weight:700;
-  }
-  .featured-cover .issue-vol{
-    font-size:9px;
-    color:var(--paleb);
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    margin-top:14px;
-  }
-  .featured-body{
-    padding:32px 36px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-  }
-  .featured-body h3{
-    font-family:'Playfair Display',serif;
-    font-size:22px;
-    font-weight:700;
-    color:var(--navy);
-    line-height:1.25;
-    margin-bottom:10px;
-  }
-  .featured-body .metric-line{
-    font-size:11px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    color:var(--sky);
-    margin-bottom:14px;
-  }
-  .featured-body p.summary{
-    color:var(--ink);
-    font-size:13.5px;
-    line-height:1.6;
-    margin-bottom:18px;
-  }
-  .featured-body .read-link{
-    color:var(--navy);
-    font-weight:600;
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-  }
-  .featured-body .read-link::after{
-    content:" →";
-    color:var(--sky);
-  }
+  .featured-cover .issue-month{font-family:'Playfair Display',serif;font-size:18px;color:var(--lb);font-weight:700;}
+  .featured-cover .issue-vol{font-size:9px;color:var(--paleb);text-transform:uppercase;letter-spacing:1.5px;margin-top:14px;}
+  .featured-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;}
+  .featured-body h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:10px;}
+  .featured-body .metric-line{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--sky);margin-bottom:14px;}
+  .featured-body p.summary{color:var(--ink);font-size:13.5px;line-height:1.6;margin-bottom:18px;}
+  .featured-body .read-link{color:var(--navy);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:1px;}
+  .featured-body .read-link::after{content:" →";color:var(--sky);}
 
-  /* ── ISSUES GRID (shared between forthcoming + past) ── */
+  /* ── ISSUES GRID ── */
   .issues-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-    gap:20px;
-    margin-bottom:48px;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:20px;margin-bottom:48px;
   }
 
-  /* PAST ISSUE CARD (linked) */
   .issue-card{
-    background:#fff;
-    border-radius:6px;
-    overflow:hidden;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
-    border-top:3px solid var(--blue);
-    transition:box-shadow .2s ease, transform .2s ease;
-    text-decoration:none;
-    color:inherit;
-    display:flex;
-    flex-direction:column;
+    background:#fff;border-radius:6px;overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid var(--blue);
+    transition:box-shadow .2s ease,transform .2s ease;
+    text-decoration:none;color:inherit;display:flex;flex-direction:column;
   }
-  .issue-card:hover{
-    box-shadow:0 6px 20px rgba(0,0,0,.12);
-    transform:translateY(-2px);
-  }
-  .issue-card .card-head{
-    padding:16px 18px 10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    border-bottom:1px solid var(--bgn);
-  }
-  .issue-card .card-issue-num{
-    font-family:'Playfair Display',serif;
-    font-size:13px;
-    font-weight:700;
-    color:var(--midb);
-    letter-spacing:.5px;
-  }
-  .issue-card .card-month{
-    font-size:9px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    color:var(--fg2);
-  }
-  .issue-card .card-body{
-    padding:14px 18px 18px;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-  }
-  .issue-card h4{
-    font-family:'Playfair Display',serif;
-    font-size:15px;
-    font-weight:700;
-    color:var(--navy);
-    line-height:1.3;
-    margin-bottom:8px;
-  }
-  .issue-card .card-metric{
-    font-size:9px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:1.2px;
-    color:var(--sky);
-    margin-bottom:8px;
-  }
-  .issue-card p{
-    color:var(--ink);
-    font-size:12px;
-    line-height:1.55;
-    margin-bottom:12px;
-    flex:1;
-  }
-  .issue-card .card-link{
-    color:var(--midb);
-    font-weight:600;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-  }
-  .issue-card .card-link::after{
-    content:" →";
-    color:var(--sky);
-  }
+  .issue-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.12);transform:translateY(-2px);}
+  .issue-card .card-head{padding:16px 18px 10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--bgn);}
+  .issue-card .card-issue-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--midb);letter-spacing:.5px;}
+  .issue-card .card-month{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--fg2);}
+  .issue-card .card-body{padding:14px 18px 18px;flex:1;display:flex;flex-direction:column;}
+  .issue-card h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:8px;}
+  .issue-card .card-metric{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--sky);margin-bottom:8px;}
+  .issue-card p{color:var(--ink);font-size:12px;line-height:1.55;margin-bottom:12px;flex:1;}
+  .issue-card .card-link{color:var(--midb);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;}
+  .issue-card .card-link::after{content:" →";color:var(--sky);}
 
-  /* FORTHCOMING ISSUE CARD (not yet linked) */
   .forthcoming-card{
     background:repeating-linear-gradient(135deg,var(--bgl) 0,var(--bgl) 10px,#fff 10px,#fff 20px);
-    border-radius:6px;
-    overflow:hidden;
-    border:2px dashed var(--lb);
-    border-top:3px solid var(--sky);
-    display:flex;
-    flex-direction:column;
-    position:relative;
+    border-radius:6px;overflow:hidden;border:2px dashed var(--lb);border-top:3px solid var(--sky);
+    display:flex;flex-direction:column;position:relative;
   }
-  .forthcoming-card .card-head{
-    padding:16px 18px 10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    border-bottom:1px dashed var(--lb);
-    background:rgba(255,255,255,.7);
-  }
-  .forthcoming-card .card-issue-num{
-    font-family:'Playfair Display',serif;
-    font-size:13px;
-    font-weight:700;
-    color:var(--midb);
-    letter-spacing:.5px;
-  }
-  .forthcoming-card .upc-badge{
-    display:inline-block;
-    background:var(--sky);
-    color:#fff;
-    font-size:8px;
-    font-weight:700;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    padding:2px 8px;
-    border-radius:2px;
-  }
-  .forthcoming-card .card-body{
-    padding:14px 18px 18px;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    background:rgba(255,255,255,.65);
-  }
-  .forthcoming-card h4{
-    font-family:'Playfair Display',serif;
-    font-size:16px;
-    font-weight:700;
-    color:var(--navy);
-    line-height:1.3;
-    margin-bottom:6px;
-  }
-  .forthcoming-card .card-month-line{
-    font-size:9px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:1.2px;
-    color:var(--midb);
-    margin-bottom:10px;
-  }
-  .forthcoming-card p{
-    color:var(--ink);
-    font-size:12px;
-    line-height:1.55;
-    margin-bottom:0;
-    flex:1;
-  }
+  .forthcoming-card .card-head{padding:16px 18px 10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--lb);background:rgba(255,255,255,.7);}
+  .forthcoming-card .card-issue-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--midb);letter-spacing:.5px;}
+  .forthcoming-card .upc-badge{display:inline-block;background:var(--sky);color:#fff;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:2px;}
+  .forthcoming-card .card-body{padding:14px 18px 18px;flex:1;display:flex;flex-direction:column;background:rgba(255,255,255,.65);}
+  .forthcoming-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:6px;}
+  .forthcoming-card .card-month-line{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--midb);margin-bottom:10px;}
+  .forthcoming-card p{color:var(--ink);font-size:12px;line-height:1.55;margin-bottom:0;flex:1;}
 
-  /* ── CADENCE STRIP (publication rhythm) ── */
-  .cadence-strip{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
-    margin-bottom:24px;
-  }
-  .cadence-card{
-    background:#fff;
-    border-radius:6px;
-    padding:16px 18px;
-    border-left:3px solid var(--sky);
-    box-shadow:0 2px 8px rgba(0,0,0,.05);
-  }
-  .cadence-card .cadence-label{
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--sky);
-    margin-bottom:4px;
-  }
-  .cadence-card h5{
-    font-family:'Playfair Display',serif;
-    font-size:14px;
-    font-weight:700;
-    color:var(--navy);
-    margin-bottom:4px;
-  }
-  .cadence-card p{
-    color:var(--ink);
-    font-size:11.5px;
-    line-height:1.5;
-    margin:0;
-  }
+  /* ── CADENCE STRIP ── */
+  .cadence-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+  .cadence-card{background:#fff;border-radius:6px;padding:16px 18px;border-left:3px solid var(--sky);box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .cadence-card .cadence-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:4px;}
+  .cadence-card h5{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+  .cadence-card p{color:var(--ink);font-size:11.5px;line-height:1.5;margin:0;}
 
   /* ── FOOTER ── */
   .foot{
-    background:var(--navy);
-    padding:28px 48px;
-    color:var(--paleb);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:18px;
+    background:var(--navy);padding:28px 48px;color:var(--paleb);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;
   }
-  .foot .ft-brand{
-    font-family:'Playfair Display',serif;
-    color:var(--lb);
-    font-size:18px;
-    font-weight:700;
-  }
-  .foot .ft-tag{
-    font-size:10px;
-    color:var(--paleb);
-    margin-top:3px;
-    letter-spacing:.5px;
-  }
-  .foot .ft-disclaimer{
-    color:var(--fg3);
-    font-size:9.5px;
-    line-height:1.6;
-    max-width:440px;
-  }
+  .foot .ft-brand{font-family:'Playfair Display',serif;color:var(--lb);font-size:18px;font-weight:700;}
+  .foot .ft-tag{font-size:10px;color:var(--paleb);margin-top:3px;letter-spacing:.5px;}
+  .foot .ft-disclaimer{color:var(--fg3);font-size:9.5px;line-height:1.6;max-width:440px;}
 
   /* ── RESPONSIVE ── */
   @media (max-width:720px){
     .mast{padding:14px 24px}
     .logo{font-size:22px}
-    .mast-meta{font-size:9px}
+    .mast-logo img{height:28px}
     .hero{padding:32px 24px 28px}
     .hero h1{font-size:26px}
     .container{padding:28px 20px}
@@ -569,10 +275,9 @@
   <!-- MASTHEAD -->
   <div class="mast">
     <div class="logo">The Square <span>Foot</span></div>
-    <div class="mast-meta">
-      Roofing Intelligence<br>
-      <strong>Monthly · Quarterly · Yearly</strong>
-    </div>
+    <a href="https://blueopspartners.com/" target="_blank" rel="noopener noreferrer" class="mast-logo">
+      <img src="images/blue-ops-logo.png" alt="Blue Ops">
+    </a>
   </div>
 
   <!-- HERO -->
@@ -586,7 +291,7 @@
   <!-- CONTAINER -->
   <div class="container">
 
-    <!-- ─────────── METHODOLOGY ─────────── -->
+    <!-- METHODOLOGY -->
     <div class="section-head">
       <div class="slabel">Methodology</div>
       <h2>How we read the industry</h2>
@@ -606,34 +311,29 @@
     </div>
 
     <div class="pillars-grid">
-
       <div class="pillar">
         <div class="pillar-num">01</div>
         <h4>Roofing Materials</h4>
         <p>Companies that <em>produce and distribute</em> roofing products designed to cover, protect, and insulate residential and commercial structures — shingles, underlayment, decking, fasteners, and gutter/drainage systems. We track price action, raw input costs, and manufacturer-led pricing announcements.</p>
       </div>
-
       <div class="pillar">
         <div class="pillar-num">02</div>
         <h4>Roofing Distributors</h4>
         <p>The <em>specialized wholesale supply chain</em> connecting manufacturers to contractors. Distributors operate networks of warehouses, fleet vehicles, and credit facilities — aggregating purchasing power to negotiate manufacturer rebates while serving as primary supply depot for regional installers.</p>
       </div>
-
       <div class="pillar">
         <div class="pillar-num">03</div>
         <h4>Roofing Contractors</h4>
         <p>Businesses specializing in the <em>installation, repair, maintenance, and waterproofing</em> of roofing systems. Operate localized labor crews, specialized equipment, and direct customer relationships — the primary service provider layer for residential and commercial roofing work.</p>
       </div>
-
       <div class="pillar">
         <div class="pillar-num">04</div>
         <h4>Roofing Specialty Tech</h4>
         <p>The <em>blending of traditional roofing with digital, material, and robotic technologies</em> — drones, AI-powered measurement, next-gen solar shingles, smart materials and sensors, and the operating-system platforms (CRM, estimating, field) reshaping how the industry runs.</p>
       </div>
-
     </div>
 
-    <!-- ─────────── PUBLICATION CADENCE ─────────── -->
+    <!-- PUBLICATION CADENCE -->
     <div class="section-head">
       <div class="slabel">Publication Cadence</div>
       <h2>How the reports stack up</h2>
@@ -661,13 +361,13 @@
       </div>
     </div>
 
-    <!-- ─────────── LATEST ISSUE ─────────── -->
+    <!-- LATEST ISSUE -->
     <div class="section-head">
       <div class="slabel">Latest Issue</div>
       <h2>Currently on the masthead</h2>
     </div>
 
-    <a href="2026/05-may-roofing.html" class="featured">
+    <a href="2026/may-test.html" class="featured">
       <div class="featured-cover">
         <div class="cover-badge">Current Issue</div>
         <div>
@@ -679,20 +379,18 @@
       <div class="featured-body">
         <div class="metric-line">Key Metric: Supplement Recovery %</div>
         <h3>QXO Releases TopBuild Investor Q&A — Frames "Own the Job Site" Integration Strategy &amp; Residential Platforms Command 5–7x EBITDA; Commercial at Premium</h3>
-        <p class="summary"> QXO releases its investor Q&A outlining the strategic rationale for its pending $17B TopBuild acquisition, construction material prices are 43.4% above February 2020 levels per NRCA data, Founders Advisors' May 13 roofing M&A update confirms persistent buyer appetite despite macro headwinds, and covering the margin metric hiding in your insurance workflow.</p>
+        <p class="summary">QXO releases its investor Q&A outlining the strategic rationale for its pending $17B TopBuild acquisition, construction material prices are 43.4% above February 2020 levels per NRCA data, Founders Advisors' May 13 roofing M&A update confirms persistent buyer appetite despite macro headwinds, and covering the margin metric hiding in your insurance workflow.</p>
         <span class="read-link">Read the May issue</span>
       </div>
     </a>
 
-    <!-- ─────────── FORTHCOMING ─────────── -->
+    <!-- FORTHCOMING -->
     <div class="section-head">
       <div class="slabel">Forthcoming</div>
       <h2>What's coming next</h2>
     </div>
 
     <div class="issues-grid">
-
-      <!-- Q2 2026 QUARTERLY -->
       <div class="forthcoming-card">
         <div class="card-head">
           <div class="card-issue-num">Quarterly Report</div>
@@ -702,10 +400,8 @@
           <div class="card-month-line">Q2 2026 · April–June</div>
           <h4>The Q2 2026 Quarterly</h4>
           <p>A consolidated quarterly view: cross-month M&amp;A trends, sector-level margin and labor shifts, capital deployment patterns, and forward-looking diligence themes for H2 2026. Publishing early July.</p>
-         </div>
+        </div>
       </div>
-
-       <!-- July 2026 MONTHLY -->
       <div class="forthcoming-card">
         <div class="card-head">
           <div class="card-issue-num">Vol. 1 · Issue 5</div>
@@ -714,36 +410,32 @@
         <div class="card-body">
           <div class="card-month-line">Monthly · July 2026</div>
           <h4>The July 2026 Issue</h4>
-          <p>Covering July 2026 activity across the four pillars — materials, distributors, contractors, and specialty tech — with the next rotating key metric. Publishing early August</p>
+          <p>Covering July 2026 activity across the four pillars — materials, distributors, contractors, and specialty tech — with the next rotating key metric. Publishing early August.</p>
         </div>
       </div>
-
     </div>
 
-    <!-- ─────────── PAST ISSUES ─────────── -->
+    <!-- PAST ISSUES -->
     <div class="section-head">
       <div class="slabel">Past Issues</div>
       <h2>Previously published</h2>
     </div>
 
     <div class="issues-grid">
-
-       <!-- April 2026 -->
-      <a href="2026/04-april-roofing.html" class="issue-card">
+      <a href="2026/april-test.html" class="issue-card">
         <div class="card-head">
           <div class="card-issue-num">Vol. 1 · Issue 2</div>
           <div class="card-month">April 2026</div>
         </div>
         <div class="card-body">
-          <h4>QXO's $19B Three-Week Sprint, Materials Margin Compression &amp; the Diligence Math Moving in Real Time<</h4>
+          <h4>QXO's $19B Three-Week Sprint, Materials Margin Compression &amp; the Diligence Math Moving in Real Time</h4>
           <div class="card-metric">Key Metric: Gain / Fade Analysis</div>
-          <p> QXO closed Kodiak on April 1 and announced TopBuild on April 19 — $19B+ deployed in three weeks, reshaping the roofing distribution layer into a duopoly conversation. Inside the contractor market, March's Atlas/CertainTeed/TAMKO price increases are landing on Q2 deliveries, the DOL independent contractor rule comment period closed April 28, and CSU's hurricane forecast points to a below-average season.</p>
+          <p>QXO closed Kodiak on April 1 and announced TopBuild on April 19 — $19B+ deployed in three weeks, reshaping the roofing distribution layer into a duopoly conversation. Inside the contractor market, March's Atlas/CertainTeed/TAMKO price increases are landing on Q2 deliveries, the DOL independent contractor rule comment period closed April 28, and CSU's hurricane forecast points to a below-average season.</p>
           <span class="card-link">Read this issue</span>
-         </div>
-        </a>
-      
-      <!-- MARCH 2026 -->
-      <a href="2026/03-march-roofing.html" class="issue-card">
+        </div>
+      </a>
+
+      <a href="2026/march-test.html" class="issue-card">
         <div class="card-head">
           <div class="card-issue-num">Vol. 1 · Issue 1</div>
           <div class="card-month">March 2026</div>
@@ -755,46 +447,6 @@
           <span class="card-link">Read this issue</span>
         </div>
       </a>
-
-      <!--
-        ───────────────────────────────────────────────────────────────
-        TO ADD A NEW PAST ISSUE EACH MONTH:
-
-        1. When a new issue publishes, move the current "featured"
-           block down here as a new <a class="issue-card"> entry.
-        2. Replace the featured block above with the new month's details.
-        3. Update the FORTHCOMING section: remove the forthcoming card
-           that just published, and add the next forthcoming month.
-
-        ── ISSUE CARD TEMPLATE (past issues) ──
-        <a href="2026/MM-month-roofing.html" class="issue-card">
-          <div class="card-head">
-            <div class="card-issue-num">Vol. 1 · Issue N</div>
-            <div class="card-month">Month Year</div>
-          </div>
-          <div class="card-body">
-            <h4>One-line headline summarizing the month</h4>
-            <div class="card-metric">Key Metric: [Metric Name]</div>
-            <p>Two-sentence summary of the issue's core narrative.</p>
-            <span class="card-link">Read this issue</span>
-          </div>
-        </a>
-
-        ── FORTHCOMING CARD TEMPLATE ──
-        <div class="forthcoming-card">
-          <div class="card-head">
-            <div class="card-issue-num">Vol. 1 · Issue N</div>
-            <div class="upc-badge">Forthcoming</div>
-          </div>
-          <div class="card-body">
-            <div class="card-month-line">Monthly · Month Year</div>
-            <h4>The Month Year Issue</h4>
-            <p>Brief description of what to expect.</p>
-          </div>
-        </div>
-        ───────────────────────────────────────────────────────────────
-      -->
-
     </div>
 
   </div>
