@@ -179,7 +179,7 @@
   .cadence-card h5{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;}
   .cadence-card p{color:var(--ink);font-size:11.5px;line-height:1.5;margin:0;}
 
-  /* ── PILLARS (trimmed, moved down) ── */
+  /* ── PILLARS ── */
   .pillars-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -187,9 +187,54 @@
     margin-bottom:48px;
   }
   .pillar{background:#fff;border-radius:6px;padding:18px 20px 20px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid var(--blue);}
-  .pillar .pillar-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--paleb);line-height:1;margin-bottom:6px;}
   .pillar h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:6px;}
   .pillar p{color:var(--ink);font-size:12px;line-height:1.55;margin:0;}
+
+  /* ── ABOUT US ── */
+  .about-block{
+    background:#fff;
+    border-radius:8px;
+    padding:36px 40px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+    border-left:4px solid var(--sky);
+    margin-bottom:48px;
+    display:flex;
+    align-items:flex-start;
+    gap:32px;
+  }
+  .about-logo{
+    flex-shrink:0;
+  }
+  .about-logo img{
+    height:44px;
+    width:auto;
+    display:block;
+  }
+  .about-text .about-name{
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:10px;
+  }
+  .about-text p{
+    color:var(--ink);
+    font-size:13.5px;
+    line-height:1.7;
+    max-width:680px;
+    margin:0;
+  }
+  .about-text .about-link{
+    display:inline-block;
+    margin-top:14px;
+    color:var(--midb);
+    font-weight:600;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    text-decoration:none;
+  }
+  .about-text .about-link::after{content:" →";color:var(--sky);}
 
   /* ── FOOTER ── */
   .foot{
@@ -217,6 +262,7 @@
     .issues-grid{grid-template-columns:1fr;gap:14px}
     .pillars-grid{grid-template-columns:1fr;gap:12px}
     .cadence-strip{grid-template-columns:1fr;gap:12px}
+    .about-block{flex-direction:column;gap:18px;padding:24px}
     .foot{padding:22px 24px;flex-direction:column;align-items:flex-start}
     .foot .ft-disclaimer{max-width:100%}
   }
@@ -243,7 +289,7 @@
   <!-- CONTAINER -->
   <div class="container">
 
-    <!-- ─── LATEST ISSUE (now first) ─── -->
+    <!-- LATEST ISSUE -->
     <div class="section-head">
       <div class="slabel">Latest Issue</div>
       <h2>Currently on the masthead</h2>
@@ -266,7 +312,7 @@
       </div>
     </a>
 
-    <!-- ─── PAST ISSUES ─── -->
+    <!-- PAST ISSUES -->
     <div class="section-head">
       <div class="slabel">Past Issues</div>
       <h2>Previously published</h2>
@@ -300,7 +346,7 @@
       </a>
     </div>
 
-    <!-- ─── FORTHCOMING ─── -->
+    <!-- FORTHCOMING -->
     <div class="section-head">
       <div class="slabel">Forthcoming</div>
       <h2>What's coming next</h2>
@@ -329,7 +375,7 @@
       </div>
     </div>
 
-    <!-- ─── PUBLICATION CADENCE ─── -->
+    <!-- PUBLICATION CADENCE -->
     <div class="section-head">
       <div class="slabel">Publication Cadence</div>
       <h2>How the reports stack up</h2>
@@ -353,7 +399,7 @@
       </div>
     </div>
 
-    <!-- ─── FOUR PILLARS (moved down, trimmed) ─── -->
+    <!-- FOUR PILLARS -->
     <div class="section-head">
       <div class="slabel">Framework</div>
       <h2>How we read the industry</h2>
@@ -375,6 +421,23 @@
       <div class="pillar">
         <h4>Specialty Tech</h4>
         <p>Drones, AI measurement, next-gen solar shingles, smart materials, and the CRM/estimating/field platforms reshaping how the industry runs.</p>
+      </div>
+    </div>
+
+    <!-- ABOUT US -->
+    <div class="section-head">
+      <div class="slabel">About Us</div>
+      <h2>The team behind the intelligence</h2>
+    </div>
+
+    <div class="about-block">
+      <div class="about-logo">
+        <img src="images/blue-ops-logo.png" alt="Blue Ops">
+      </div>
+      <div class="about-text">
+        <div class="about-name">Blue Ops Partners</div>
+        <p>Blue Ops specializes in M&amp;A Advisory and business optimization. After more than a decade in business and hundreds of M&amp;A transactions, we've learned the journey from initial due diligence to the final exit is much like climbing a mountain. When you team with expert guides, take tested trails, and use quality gear, you have significantly less risk and an exponentially greater chance of reaching higher peaks.</p>
+        <a href="https://blueopspartners.com/" target="_blank" rel="noopener noreferrer" class="about-link">Learn more about Blue Ops</a>
       </div>
     </div>
 
