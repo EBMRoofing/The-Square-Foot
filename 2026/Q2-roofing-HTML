@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Square Foot — Q2 2026 Quarterly Report</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root{
+    --navy:#00539B; --blue:#56A0D3; --sky:#3C92CC; --midb:#1964A5;
+    --lb:#88BCE0; --paleb:#AACFE9; --dark1:#002060;
+    --ink:#59575B; --fg2:#817F83; --fg3:#A6A5A8;
+    --bg:#FFFFFF; --bgl:#EEF5FA; --bgn:#E5E5E6;
+    --dg:#59575B; --mg:#817F83;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bgl);font-family:'Inter',sans-serif;font-size:13px;line-height:1.6;color:var(--ink);min-height:100vh}
+
+  .page-frame{max-width:1200px;margin:0 auto;background:#fff;box-shadow:0 0 24px rgba(0,0,0,.08)}
+
+  .print-bar{background:var(--navy);padding:10px 48px;display:flex;align-items:center;justify-content:space-between}
+  .print-bar .back-link{color:var(--paleb);font-size:12px;text-decoration:none;font-weight:700;letter-spacing:.3px;display:inline-flex;align-items:center;gap:6px}
+  .print-bar .back-link:hover{color:#fff}
+  .print-bar .back-link::before{content:"←";font-size:14px;color:var(--lb)}
+  .print-btn{background:var(--sky);color:#fff;border:none;padding:8px 20px;border-radius:4px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.5px}
+  .print-btn:hover{background:var(--blue)}
+
+  .mast{background:var(--navy);padding:18px 48px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;white-space:nowrap;letter-spacing:-.5px}
+  .logo span{color:var(--lb)}
+  .mast-meta{color:var(--fg3);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;text-align:right;line-height:1.7}
+  .mast-meta strong{color:var(--lb);font-weight:600}
+
+  .hero{background:linear-gradient(135deg,var(--dark1),var(--navy));padding:52px 48px 44px;border-bottom:3px solid var(--sky)}
+  .hero-inner{max-width:1200px;margin:0 auto}
+  .badge{display:inline-block;background:var(--sky);color:#fff;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:12px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;max-width:800px}
+  .hero h1 em{color:var(--lb);font-style:normal}
+  .hero p.tagline{color:var(--paleb);font-size:14.5px;max-width:900px;line-height:1.7}
+  .hero .qmeta{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+  .hero .qmeta div{color:var(--fg3);font-size:9px;text-transform:uppercase;letter-spacing:1.5px}
+  .hero .qmeta div strong{display:block;color:#fff;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;text-transform:none;letter-spacing:0;margin-top:3px}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 48px 48px}
+
+  .rule{height:2px;background:linear-gradient(90deg,var(--sky),transparent);border:none;margin:6px 0 18px}
+  .slabel{font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);margin-bottom:5px}
+  h2.sechead{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:4px;line-height:1.2}
+  .sechead-wrap{padding-top:34px}
+  p{margin-bottom:11px;color:var(--dg);font-size:12.5px;line-height:1.65}
+  p strong{color:var(--navy)}
+  p em{color:var(--midb);font-style:italic}
+
+  /* AT A GLANCE STRIP */
+  .glance-strip{background:linear-gradient(135deg,var(--dark1),var(--navy));padding:26px 48px 30px;border-bottom:2px solid rgba(86,160,211,.3)}
+  .glance-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:14px}
+  .glance-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .g-card{background:var(--midb);border-radius:5px;padding:14px 14px}
+  .g-card .g-title{font-size:8.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--sky);margin-bottom:7px;line-height:1.3}
+  .g-card .g-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;line-height:1}
+  .g-card .g-sub{font-size:9.5px;color:var(--paleb);margin-top:5px;line-height:1.4}
+
+  /* EXEC SUMMARY */
+  .exec-block{background:var(--bgl);border-left:4px solid var(--sky);border-radius:0 6px 6px 0;padding:22px 26px;margin:26px 0}
+  .exec-block p{font-size:13px;color:var(--ink);margin-bottom:12px}
+  .exec-block p:last-child{margin-bottom:0}
+
+  /* MONTH RECAP */
+  .month-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px}
+  .month-card{background:#fff;border-top:3px solid var(--blue);border-radius:0 0 6px 6px;box-shadow:0 2px 10px rgba(0,0,0,.06);padding:16px 18px 18px;display:flex;flex-direction:column}
+  .month-card.june{border-top-color:var(--navy);box-shadow:0 4px 16px rgba(0,83,155,.14)}
+  .month-card .m-tag{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky);margin-bottom:3px}
+  .month-card h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .month-card ul{list-style:none;padding:0;margin:0;flex:1}
+  .month-card li{font-size:11.5px;color:var(--ink);line-height:1.5;padding:7px 0;border-bottom:1px solid var(--bgn)}
+  .month-card li:last-child{border-bottom:none;padding-bottom:0}
+  .month-card li strong{color:var(--navy);display:block;font-size:11.5px;margin-bottom:2px}
+
+  /* DATA TABLE */
+  .data-table{width:100%;border-collapse:collapse;margin:16px 0 20px;font-size:11.5px}
+  .data-table th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-size:9px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+  .data-table td{padding:9px 12px;border-bottom:1px solid var(--bgn);color:var(--ink)}
+  .data-table tr:nth-child(even) td{background:var(--bgl)}
+  .data-table td.num{font-weight:700;color:var(--navy);white-space:nowrap}
+
+  /* MINI BARS */
+  .bars{margin:14px 0 6px}
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .bar-lbl{font-size:11px;color:var(--ink);width:170px;flex-shrink:0}
+  .bar-bg{flex:1;background:var(--bgn);border-radius:3px;height:9px}
+  .bar-fill{height:9px;border-radius:3px}
+  .bar-val{font-size:11px;font-weight:700;color:var(--navy);width:48px;text-align:right;flex-shrink:0}
+
+  /* CALLOUT */
+  .callout{background:var(--navy);border-radius:8px;padding:22px 26px;margin:22px 0}
+  .callout h3{color:var(--sky);font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-top:0;margin-bottom:10px}
+  .callout p{color:var(--paleb);font-size:12px;margin-bottom:8px;line-height:1.65}
+  .callout p:last-child{margin-bottom:0}
+  .callout strong{color:#fff}
+  .callout em{color:var(--lb)}
+
+  /* PE / TECH TWO COL */
+  .two-col{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start;margin-top:14px}
+  .side-box{background:var(--bgl);border-left:3px solid var(--sky);border-radius:0 6px 6px 0;padding:16px 18px}
+  .side-box .sb-label{font-size:9px;font-weight:700;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+  .side-box ul{padding-left:16px;margin:0}
+  .side-box li{font-size:11.5px;color:var(--ink);line-height:1.6;margin-bottom:7px}
+  .side-box li:last-child{margin-bottom:0}
+  .side-box li strong{color:var(--navy)}
+
+  /* ROLE IMPACT GRID */
+  .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+  .role-card{background:#fff;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid var(--sky);padding:16px 18px 18px}
+  .role-card .role-tag{display:inline-block;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--navy);color:#fff;padding:3px 9px;border-radius:2px;margin-bottom:9px}
+  .role-card h4{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.3}
+  .role-card p{font-size:11.5px;color:var(--ink);margin-bottom:0;line-height:1.6}
+
+  /* OUTLOOK */
+  .outlook-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+  .outlook-card{background:var(--bgl);border-radius:6px;padding:16px 18px;border-top:3px solid var(--midb)}
+  .outlook-card .o-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:900;color:var(--navy);margin-bottom:6px}
+  .outlook-card p{font-size:11.5px;color:var(--ink);margin-bottom:0;line-height:1.55}
+
+  .foot{background:var(--navy);padding:28px 48px;color:var(--paleb);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .ft-brand{font-family:'Playfair Display',serif;color:var(--lb);font-size:18px;font-weight:700}
+  .ft-tag{font-size:10px;color:var(--paleb);margin-top:3px;letter-spacing:.5px}
+  .ft-disclaimer{color:var(--fg3);font-size:9.5px;line-height:1.6;max-width:460px}
+
+  @media print{
+    .print-bar{display:none!important}
+    body{background:#fff;margin:0;padding:0}
+    .page-frame{max-width:100%;box-shadow:none;margin:0}
+    @page{margin:.4in;size:letter portrait}
+  }
+  @media(max-width:900px){
+    .glance-grid{grid-template-columns:repeat(2,1fr)}
+    .month-grid{grid-template-columns:1fr}
+    .two-col{grid-template-columns:1fr}
+    .role-grid{grid-template-columns:1fr}
+    .outlook-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:720px){
+    .print-bar,.mast,.foot{padding-left:24px;padding-right:24px}
+    .hero{padding:36px 24px 30px}
+    .hero h1{font-size:28px}
+    .hero .qmeta{gap:18px}
+    .container{padding:0 20px 32px}
+    .glance-strip{padding:20px 24px 24px}
+    .glance-grid{grid-template-columns:1fr}
+    .bar-lbl{width:110px}
+    .foot{flex-direction:column;align-items:flex-start;padding:22px 24px}
+    .ft-disclaimer{max-width:100%}
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <a href="../index.html" class="back-link">Back to Library</a>
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<div class="page-frame">
+
+  <div class="mast">
+    <div class="logo">The Square <span>Foot</span></div>
+    <div class="mast-meta">Quarterly Report · Q2 2026<br><strong>Intelligence for Roofing Executives &amp; PE Investors</strong></div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="badge">Quarterly Review</div>
+      <h1>The Quarter That <em>Reset the Floor</em> — April Through June 2026</h1>
+      <p class="tagline">Three months, three manufacturer price increases, a $17 billion distribution mega-deal, and a hurricane season that can't decide what it wants to be. Here's what actually mattered in Q2 — and what it means depending on which chair you sit in.</p>
+      <div class="qmeta">
+        <div>Coverage Period<strong>April – June 2026</strong></div>
+        <div>Companion Issues<strong>April &amp; May 2026 (full detail)</strong></div>
+        <div>Next Report<strong>July 2026 Issue</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AT A GLANCE -->
+  <div class="glance-strip">
+    <div class="glance-label">Q2 2026 At a Glance</div>
+    <div class="glance-grid">
+      <div class="g-card">
+        <div class="g-title">Distribution Consolidation</div>
+        <div class="g-num">$19B+</div>
+        <div class="g-sub">Deployed by QXO across Kodiak (April 1 close, $2.25B) and TopBuild (April 19 announcement, ~$17B)</div>
+      </div>
+      <div class="g-card">
+        <div class="g-title">Manufacturer Increases</div>
+        <div class="g-num">3</div>
+        <div class="g-sub">Distinct rounds of shingle/accessory price hikes landed in Q2 across GAF, Owens Corning, CertainTeed &amp; Atlas</div>
+      </div>
+      <div class="g-card">
+        <div class="g-title">Installed Project Cost</div>
+        <div class="g-num">$20.5–21.5K</div>
+        <div class="g-sub">National average for a 2,000 sq ft asphalt shingle replacement, up from the ~$18–19K range entering the year</div>
+      </div>
+      <div class="g-card">
+        <div class="g-title">Construction Labor Gap</div>
+        <div class="g-num">349K</div>
+        <div class="g-sub">Projected 2026 construction workforce shortfall (NRCA/ABC), with roofing among the most exposed trades</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- EXEC SUMMARY -->
+    <div class="sechead-wrap">
+      <div class="slabel">The Overview</div>
+      <h2 class="sechead">Q2 2026 in Two Paragraphs</h2>
+      <hr class="rule">
+    </div>
+    <div class="exec-block">
+      <p>The second quarter confirmed that roofing's cost structure has permanently reset rather than temporarily spiked. Three separate rounds of manufacturer price action — a February–April increase of 4–8%, a June 1 follow-up of 6–10% from GAF, Owens Corning and CertainTeed, and a parallel SRS Distribution increase of 6–10% effective the same day — landed on top of tariffs that never rolled back. Steel and aluminum duties held at 50%, MDI adhesive and TCPP flame-retardant inputs continued carrying anti-dumping duties north of 60% and 270% respectively, and GAF's own distributor letter cited a "sustained surge" in raw material costs as the justification for the June round. The national average installed cost for a 2,000-square-foot asphalt shingle roof moved to roughly $20,500–$21,500, and metal roofing — almost entirely steel or aluminum by weight — absorbed the steepest hit, up 15–25% since the tariff expansion took hold.</p>
+      <p>On the deal side, Q2 was the most consequential three-month stretch in roofing distribution history: QXO closed its $2.25 billion Kodiak acquisition on April 1, then five weeks later announced a $17 billion agreement to acquire TopBuild, a deal expected to close in Q3 that would make QXO the second-largest publicly traded building-products distributor in North America. Beneath that headline, the contractor-level roll-up cadence never slowed — Axial's live platform tracked 92 roofing companies actively marketed and roughly 1,970 investors hunting for deals by mid-quarter — while founder-owned platforms like Royalty Roofing USA kept pace with sponsor-backed buyers, closing two acquisitions in a single week in May. Layer in a Verisk report showing claim severity up 33% even as claim frequency fell, a labor market where more than half of roofing crews are foreign-born against a backdrop of intensifying federal enforcement, and a hurricane forecast that flipped direction more than once, and Q2 was a quarter that rewarded operators with pricing discipline and documentation rigor — and punished everyone still running on last year's numbers.</p>
+    </div>
+
+    <!-- MONTH BY MONTH -->
+    <div class="sechead-wrap">
+      <div class="slabel">Month by Month</div>
+      <h2 class="sechead">How the Quarter Unfolded</h2>
+      <hr class="rule">
+    </div>
+    <div class="month-grid">
+      <div class="month-card">
+        <div class="m-tag">April 2026</div>
+        <h3>Distribution Consolidates</h3>
+        <ul>
+          <li><strong>QXO closes Kodiak (April 1)</strong>Cash-and-stock close of the $2.25B Kodiak Building Partners deal from Court Square Capital, adding lumber, gypsum and construction-supply distribution to QXO's roofing base.</li>
+          <li><strong>QXO announces TopBuild (April 19)</strong>A ~$17B agreement to acquire the insulation and specialty distribution leader, pushing QXO toward #2 in North American building-products distribution — deal expected to close Q3.</li>
+          <li><strong>Manufacturer round one lands</strong>GAF, Owens Corning, CertainTeed and Atlas issue coordinated 4–8% increases on shingles and accessories.</li>
+          <li><strong>Roofing Day in D.C.</strong>200+ industry professionals from 32 states press Congress on the housing and workforce shortage — NRCA cites a 349,000-worker 2026 gap.</li>
+        </ul>
+      </div>
+      <div class="month-card">
+        <div class="m-tag">May 2026</div>
+        <h3>Severity Over Volume</h3>
+        <ul>
+          <li><strong>Royalty Roofing's dual bolt-on (May 5)</strong>Simultaneous acquisitions of 768-Roof (PA) and Nasi Roofing (WI) — Royalty's third and fourth deal of 2026, extending a founder-owned platform into two new states in one move.</li>
+          <li><strong>Verisk's 2026 U.S. Roof Report (May 29)</strong>Replacement severity up 33% and repair costs up 25% vs. the prior four-year average — despite claims volume falling ~20% — with 38% of U.S. roofs now rated moderate to poor condition.</li>
+          <li><strong>Founders Advisors M&amp;A update (May 13)</strong>Residential platforms transacting at 4–7x EBITDA; 92 companies actively marketed and ~1,970 investors hunting deals on Axial.</li>
+          <li><strong>Fed holds again</strong>FOMC holds the federal funds rate at 4.25–4.50% for a fifth straight meeting; rate-cut odds for June priced near single digits.</li>
+        </ul>
+      </div>
+      <div class="month-card june">
+        <div class="m-tag">June 2026</div>
+        <h3>The Cost Floor Resets Again</h3>
+        <ul>
+          <li><strong>Second manufacturer round, effective June 1</strong>GAF and Owens Corning each announce a further 6–9% on shingles and accessories; CertainTeed goes up to 10% on all residential product lines, including multi-family and new construction.</li>
+          <li><strong>SRS Distribution matches (June 1)</strong>A separate 6–10% distributor-level increase on all residential roofing products — meaning many contractors absorbed two distinct price moves inside a single billing cycle.</li>
+          <li><strong>TopBuild shareholder vote mechanics (June 4)</strong>QXO and TopBuild set the cash-or-stock election deadline as the ~$17B deal moves toward its Q3 close.</li>
+          <li><strong>Hurricane season opens, forecasts diverge</strong>NOAA holds below-normal (8–14 named storms); AccuWeather calls for 11–16 storms and 3–5 direct U.S. impacts; El Niño odds climb to roughly 80% for the summer, a wind-shear factor that historically suppresses activity.</li>
+          <li><strong>DOL comment period closes, rule still pending</strong>The 60-day window on the proposed rescission of the 2024 independent-contractor rule closed April 28; as of quarter-end no final rule had published, leaving the more contractor-friendly 2021-style framework still in proposal form.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MATERIALS & COST -->
+    <div class="sechead-wrap">
+      <div class="slabel">Materials &amp; Cost Trends</div>
+      <h2 class="sechead">A Structural Reset, Not a Cyclical Spike</h2>
+      <hr class="rule">
+    </div>
+    <p>Six of the seven major asphalt-shingle manufacturers pushed two separate rounds of price increases through Q2 — one in the February–April window, a second effective June 1 — for a cumulative move in the high single to low double digits on top of an already-elevated 2025 base. Tariffs did not roll back at any point in the quarter: Section 232 duties on steel and aluminum held at 50%, copper-content products carried a 25% rate, and the anti-dumping duties on MDI adhesive components (roughly 60%) and TCPP flame retardants (roughly 270%) remained fully in force as domestic-manufacturing input costs, meaning no import-relief pathway applied. The compounding effect is visible by material:</p>
+    <div class="bars">
+      <div class="bar-row"><div class="bar-lbl">Metal roofing (since tariff expansion)</div><div class="bar-bg"><div class="bar-fill" style="width:88%;background:#dc2626"></div></div><div class="bar-val">15–25%</div></div>
+      <div class="bar-row"><div class="bar-lbl">Asphalt shingles (trailing 12 months)</div><div class="bar-bg"><div class="bar-fill" style="width:55%;background:#f87171"></div></div><div class="bar-val">6–10%</div></div>
+      <div class="bar-row"><div class="bar-lbl">Siding / exterior product lines</div><div class="bar-bg"><div class="bar-fill" style="width:50%;background:#f87171"></div></div><div class="bar-val">4–12%</div></div>
+      <div class="bar-row"><div class="bar-lbl">Aluminum trim &amp; hardware (2026)</div><div class="bar-bg"><div class="bar-fill" style="width:35%;background:#fbbf24"></div></div><div class="bar-val">~10%</div></div>
+    </div>
+    <p>The Verisk 2026 U.S. Roof Report added the other half of the margin story: replacement severity rose 33% and repair severity rose 25% versus the prior four-year average, even as total claims volume fell nearly 20%. Sub-catastrophe hail — damage that accumulates below the threshold that triggers a formal catastrophe designation — is doing the work, concentrated on an aging roof stock; 38% of U.S. roofs are now rated moderate to poor condition, and Verisk's data shows those roofs carry 60% higher loss costs than well-maintained ones. For an insurance-restoration-heavy platform, the practical read is that initial carrier estimates are increasingly lagging true replacement cost — which is exactly the gap a disciplined supplement desk is built to close.</p>
+
+    <!-- M&A / PE -->
+    <div class="sechead-wrap">
+      <div class="slabel">M&amp;A &amp; Private Equity Activity</div>
+      <h2 class="sechead">Two Buyer Universes, Both Accelerating</h2>
+      <hr class="rule">
+    </div>
+    <div class="two-col">
+      <div>
+        <p>Q2 was defined by scale at the top and volume underneath it. QXO's back-to-back moves — the $2.25B Kodiak close on April 1 and the $17B TopBuild agreement on April 19 — represent roughly $19B of capital deployed in three weeks, reshaping roofing distribution into a conversation about who competes with a company that will finish the year with more than $18B in combined revenue and #1 or #2 positions in insulation, waterproofing and roofing. The TopBuild deal is expected to close in Q3, and integration planning became a live workstream for distributor-facing teams through the back half of the quarter.</p>
+        <p>Beneath the distribution layer, contractor-level consolidation didn't pause. Founders Advisors' May update put residential bolt-ons at 4–7x EBITDA with persistent buyer appetite despite the macro backdrop, and KPMG's 2026 roofing report confirmed 2025 transaction volume hit all-time highs — a pace 2026 has so far matched. Founder-owned platforms are increasingly competing directly with sponsor-backed buyers for the same regional targets: Royalty Roofing USA's simultaneous May 5 acquisitions of 768-Roof and Nasi Roofing were its third and fourth deals of the year, extending a Midwest-anchored platform into Pennsylvania and Wisconsin without PE capital behind it. Reporting on Tecta America — the largest commercial roofing platform in the country, owned by Altas Partners and Leonard Green — continued to reference a possible $3–4B sale process first floated in late 2024; no transaction had closed as of quarter-end, and the company continued its own active bolt-on cadence in the meantime.</p>
+      </div>
+      <div class="side-box">
+        <div class="sb-label">Q2 Deal Signals</div>
+        <ul>
+          <li><strong>92</strong> roofing companies actively marketed on Axial mid-quarter</li>
+          <li><strong>~1,970</strong> investors actively sourcing roofing acquisitions</li>
+          <li><strong>4–7x</strong> EBITDA for residential bolt-ons; commercial trading at a premium</li>
+          <li><strong>56+</strong> PE-backed contractor platforms still in active bolt-on mode</li>
+          <li>PE now owns roughly <strong>7 of the top 10</strong> largest U.S. roofing contractors</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- REGULATORY & LABOR -->
+    <div class="sechead-wrap">
+      <div class="slabel">Regulatory &amp; Workforce</div>
+      <h2 class="sechead">The Labor Story Is the Quarter's Quiet Headline</h2>
+      <hr class="rule">
+    </div>
+    <p>The Department of Labor's proposal to rescind the 2024 independent-contractor rule and restore a modified 2021-style, control-and-opportunity-for-profit test cleared its 60-day comment period on April 28 without a final rule publishing before quarter-end — leaving the friendlier framework directionally favorable but not yet operative. Critically, state-level ABC tests in California, New Jersey and Illinois are unaffected by anything happening federally, and the 2024 rule technically remains live for private FLSA litigation regardless of DOL enforcement posture. Platforms with material 1099 exposure in those states gained no relief in Q2.</p>
+    <p>Workforce pressure intensified rather than eased. Roofing draws an estimated 50–55% of its labor from foreign-born workers — among the highest concentrations of any construction trade — against an industry-wide 2026 shortfall NRCA projects at roughly 349,000 workers, rising to 456,000 in 2027. Intensifying federal immigration enforcement through the quarter added a second-order disruption on top of the existing gap: multiple contractor surveys reported measurable crew disruptions tied to enforcement activity, and wage pressure in specialized trades climbed 9–11% in some high-demand markets as availability tightened further. For operators, the practical effect showed up as longer bid-to-crew timelines and, in several regions, outright schedule slippage independent of materials or demand.</p>
+
+    <!-- TECH -->
+    <div class="sechead-wrap">
+      <div class="slabel">Technology</div>
+      <h2 class="sechead">AI Adoption Crossed a Real Threshold</h2>
+      <hr class="rule">
+    </div>
+    <p>Industry survey data through Q2 put AI adoption among roofing contractors at roughly 40%, up from 29% a year earlier, with the share of contractors saying they have no plans to use AI at all falling from 32% to just 9%. The adoption is concentrated at the edges of the business rather than the core — drone use reached roughly 54% of contractors and aerial measurement tools about 51%, while only about 4% of firms have AI embedded directly in their CRM or production software. Most of the real gains are unglamorous: automated takeoffs collapsing a day of estimating work into a fraction of that time, AI-assisted damage documentation from drone imagery, and phone/lead-response automation that captures storm-driven call volume a human office can't handle in real time. The gap between tool adoption and workflow integration is itself a diligence marker — a platform running point tools without a connected data layer is accumulating the same kind of hidden cost-of-revenue leakage that an under-tracked HOVER or EagleView subscription creates on the estimating side.</p>
+
+    <!-- ROLE IMPACT -->
+    <div class="sechead-wrap">
+      <div class="slabel">Who Felt It, and How</div>
+      <h2 class="sechead">Q2 by Job Title</h2>
+      <hr class="rule">
+    </div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-tag">CEO / Owner</div>
+        <h4>The quarter to decide whether you're a buyer, a seller, or neither</h4>
+        <p>With 92 companies marketed and founder-owned platforms like Royalty proving PE capital isn't a prerequisite for scale, Q2 sharpened the strategic question every roofing CEO is sitting with: build, buy, or sell into a market where multiples remain favorable but diligence bars keep rising. The Tecta sale-process chatter is a live reminder that even the largest platforms are candidates for a transaction.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-tag">CFO</div>
+        <h4>Three price increases and a rate hold left no room for stale pricing</h4>
+        <p>Bids written before June 1 and installed after it absorbed a real margin gap on two separate occasions this quarter. With the Fed holding for a fifth straight meeting and cut odds still low, CFOs spent Q2 tightening price-hold windows, re-costing open bids, and pressure-testing whether job-level cost tracking (materials, per-scan tech fees, supplement recovery) is granular enough to survive a QoE.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-tag">COO</div>
+        <h4>Crew capacity became the binding constraint, not demand</h4>
+        <p>Between a 349,000-worker national shortfall, immigration-enforcement-driven crew disruptions, and 9–11% wage inflation in tight markets, operational leaders spent the quarter managing around labor availability more than around backlog. Scheduling discipline and cross-training became the practical hedge against a labor market that isn't loosening.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-tag">Sales / BD / CRO</div>
+        <h4>Severity is up, frequency is down — the pitch has to change</h4>
+        <p>With claims volume falling but average payouts rising 25–33% per Verisk, the sales motion that wins in Q3 is documentation-led, not volume-led: fewer doors, higher-value jobs, and a supplement conversation that starts at inspection rather than after the first denial. Commercial teams are also fielding more inbound interest as consolidation activity puts roofing on more corporate-development radars.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-tag">IT Director</div>
+        <h4>Point-tool sprawl is now a visible integration debt</h4>
+        <p>AI and drone adoption climbed again this quarter, but the data shows most of it sitting outside core systems — only about 4% of firms have AI genuinely embedded in their CRM. IT leaders spent Q2 fielding requests for new tools faster than they could wire them into estimating, production, and job-costing, and that gap is exactly what a diligence team will probe first.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-tag">Marketing Executive</div>
+        <h4>Storm-season messaging got harder to time, not easier</h4>
+        <p>A hurricane forecast that moved between "below-normal" and "above-normal" across three separate updates this quarter made pre-season lead-gen campaigns a moving target. The more durable Q2 marketing story was severity, not frequency — positioning around inspection and documentation quality plays better than storm-chasing messaging in a lower-frequency, higher-ticket claims environment.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-tag">Field Contractors</div>
+        <h4>Two price letters and a tighter crew market, felt directly</h4>
+        <p>Crews absorbed the practical version of every macro trend this quarter: material costs moved twice inside three months, jobsite labor got scarcer and more expensive, and drone/AI tools increasingly showed up as a condition of employment rather than an option. Documentation discipline at the point of inspection — photos, Xactimate line items — is doing more to protect a crew's paycheck than it did a year ago.</p>
+      </div>
+    </div>
+
+    <!-- BOTTOM LINE -->
+    <div class="callout">
+      <h3>The Square Foot Bottom Line — Q2 2026</h3>
+      <p>The through-line of the quarter is that every layer of the industry reset upward at once — materials, deal multiples, labor costs, and claim severity — while claim frequency and construction labor supply moved the other direction. That combination rewards operators who can document their way to a fair price on every job (supplement recovery, accurate job costing, disciplined bid-to-install pricing) and punishes operators still running on last year's assumptions in any one of those categories.</p>
+      <p><strong>Three things to have in place before Q3 closes:</strong> a supplement desk workflow that captures the Verisk-documented gap between initial carrier estimates and true replacement severity; job-level cost tracking that catches the June 1 materials increase and any per-scan technology fees before they erode margin quietly; and current 1099/IC documentation, since the DOL's friendlier framework remains proposed rather than final and state ABC tests in CA, NJ and IL are untouched by any of it.</p>
+      <p>Watch three things into Q3: whether the QXO–TopBuild deal closes on schedule and what it signals for the next distribution consolidation move, whether the hurricane forecast divergence resolves toward NOAA's below-normal read or AccuWeather's more active one, and whether the DOL publishes a final independent-contractor rule — expected later in 2026 but not committed to a date as of this report.</p>
+    </div>
+
+    <!-- OUTLOOK -->
+    <div class="sechead-wrap">
+      <div class="slabel">Looking Ahead</div>
+      <h2 class="sechead">Three Questions for Q3</h2>
+      <hr class="rule">
+    </div>
+    <div class="outlook-grid">
+      <div class="outlook-card">
+        <div class="o-num">01 — Distribution</div>
+        <p>Does the TopBuild close go smoothly, and does QXO signal another acquisition target once it does? A $2B+ war chest and a proven playbook suggest the consolidation story isn't finished.</p>
+      </div>
+      <div class="outlook-card">
+        <div class="o-num">02 — Storms</div>
+        <p>Peak hurricane season (mid-August through late October) will settle the NOAA-vs-AccuWeather disagreement. Either outcome, Verisk's severity data means the jobs that do come in will carry a higher average ticket.</p>
+      </div>
+      <div class="outlook-card">
+        <div class="o-num">03 — Regulation</div>
+        <p>A final DOL independent-contractor rule is expected later in 2026. Platforms with meaningful 1099 exposure — especially in ABC-test states — should treat the current window as prep time, not resolution.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <div>
+      <div class="ft-brand">The Square Foot</div>
+      <div class="ft-tag">Quarterly Report · Q2 2026 · Intelligence for Roofing Executives &amp; PE Investors</div>
+    </div>
+    <div class="ft-disclaimer">For informational purposes only. Not investment advice. Synthesized from public reporting including QXO investor releases (Feb, Apr, Jun 2026); Beacon/Kodiak/TopBuild transaction announcements; Verisk 2026 U.S. Roof Report (May 29, 2026); Founders Advisors Roofing M&amp;A Update (May 13, 2026); KPMG Corporate Finance 2026 Roofing Contracting report; GAF, Owens Corning, CertainTeed and SRS Distribution letters (Apr–Jun 2026); NRCA and ABC workforce data; NAHB immigrant workforce analysis (Apr 2026); NOAA and AccuWeather 2026 Atlantic hurricane outlooks; U.S. DOL NPRM on independent contractor classification (Feb 27, 2026) and related counsel commentary; Federal Reserve FOMC statements; Axial platform data; Roofing Contractor / myCLEARopinion and ServiceTitan roofing technology surveys. Full source detail available on request. Past performance does not guarantee future results.</div>
+  </div>
+
+</div>
+</body>
+</html>
