@@ -88,6 +88,10 @@
     margin-bottom:22px;
     padding-bottom:12px;
     border-bottom:2px solid var(--sky);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:12px;
   }
   .section-head .slabel{
     font-size:9px;
@@ -104,6 +108,7 @@
     color:var(--navy);
     line-height:1.2;
   }
+  .section-head .head-text{min-width:0}
 
   /* ── FEATURED ISSUE ── */
   .featured{
@@ -136,12 +141,13 @@
   .featured-body .read-link{color:var(--navy);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:1px;}
   .featured-body .read-link::after{content:" →";color:var(--sky);}
 
-  /* ── ISSUES GRID ── */
+  /* ── ISSUES GRID (What's Coming Next — unchanged, static grid) ── */
   .issues-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
     gap:20px;
     margin-bottom:48px;
+    align-items:stretch;
   }
 
   .issue-card{
@@ -149,16 +155,18 @@
     box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid var(--blue);
     transition:box-shadow .2s ease,transform .2s ease;
     text-decoration:none;color:inherit;display:flex;flex-direction:column;
+    height:100%;
   }
   .issue-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.12);transform:translateY(-2px);}
-  .issue-card .card-head{padding:16px 18px 10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--bgn);}
-  .issue-card .card-issue-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--midb);letter-spacing:.5px;}
-  .issue-card .card-month{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--fg2);}
+  .issue-card.quarterly{border-top-color:var(--navy);}
+  .issue-card .card-head{padding:16px 18px 10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--bgn);gap:10px;}
+  .issue-card .card-issue-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--midb);letter-spacing:.5px;white-space:nowrap;}
+  .issue-card .card-month{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--fg2);white-space:nowrap;}
   .issue-card .card-body{padding:14px 18px 18px;flex:1;display:flex;flex-direction:column;}
   .issue-card h4{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:8px;}
   .issue-card .card-metric{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--sky);margin-bottom:8px;}
   .issue-card p{color:var(--ink);font-size:12px;line-height:1.55;margin-bottom:12px;flex:1;}
-  .issue-card .card-link{color:var(--midb);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;}
+  .issue-card .card-link{color:var(--midb);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-top:auto;}
   .issue-card .card-link::after{content:" →";color:var(--sky);}
 
   .forthcoming-card{
@@ -172,6 +180,61 @@
   .forthcoming-card .card-body{padding:14px 18px 18px;flex:1;display:flex;flex-direction:column;background:rgba(255,255,255,.65);}
   .forthcoming-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:4px;}
   .forthcoming-card .card-month-line{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--midb);margin-bottom:0;}
+
+  /* ── PAST PUBLICATIONS CAROUSEL ── */
+  .pub-carousel{
+    position:relative;
+    margin-bottom:48px;
+    padding:0 50px;
+  }
+  .pub-viewport{
+    overflow:hidden;
+  }
+  .pub-track{
+    display:flex;
+    gap:20px;
+    transition:transform .35s ease;
+    --visible:3;
+  }
+  .pub-track .issue-card{
+    flex:0 0 calc((100% - (var(--visible) - 1) * 20px) / var(--visible));
+    width:calc((100% - (var(--visible) - 1) * 20px) / var(--visible));
+  }
+  .car-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.18);
+    z-index:5;
+    transition:background .2s ease,opacity .2s ease,transform .2s ease;
+  }
+  .car-arrow:hover:not(:disabled){background:var(--sky)}
+  .car-arrow:disabled{background:var(--fg3);opacity:.4;cursor:not-allowed}
+  .car-prev{left:0}
+  .car-next{right:0}
+  .pub-dots{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin-top:16px;
+  }
+  .pub-dots .dot{
+    width:6px;height:6px;border-radius:50%;background:var(--bgn);
+    transition:background .2s ease,width .2s ease;
+  }
+  .pub-dots .dot.active{background:var(--sky);width:18px;border-radius:3px;}
 
   /* ── CADENCE STRIP ── */
   .cadence-strip{
@@ -259,6 +322,9 @@
   .foot .ft-disclaimer{color:var(--fg3);font-size:9.5px;line-height:1.6;max-width:440px;}
 
   /* ── RESPONSIVE ── */
+  @media (max-width:980px){
+    .pub-track{--visible:2}
+  }
   @media (max-width:720px){
     .mast{padding:14px 24px}
     .logo{font-size:22px}
@@ -266,6 +332,7 @@
     .hero{padding:32px 24px 28px}
     .hero h1{font-size:26px}
     .container{padding:28px 20px}
+    .section-head{flex-direction:column;align-items:flex-start}
     .section-head h2{font-size:20px}
     .featured{grid-template-columns:1fr}
     .featured-cover{padding:24px}
@@ -273,6 +340,11 @@
     .featured-body{padding:24px}
     .featured-body h3{font-size:19px}
     .issues-grid{grid-template-columns:1fr;gap:14px}
+    .pub-track{--visible:1}
+    .pub-carousel{padding:0 40px}
+    .car-arrow{width:34px;height:34px;font-size:16px}
+    .car-prev{left:-4px}
+    .car-next{right:-4px}
     .pillars-grid{grid-template-columns:1fr;gap:12px}
     .cadence-strip{grid-template-columns:1fr;gap:12px}
     .about-block{flex-direction:column;gap:18px;padding:28px}
@@ -305,109 +377,103 @@
 
     <!-- LATEST ISSUE -->
     <div class="section-head">
-      <h2>Latest Issue</h2>
+      <div class="head-text"><h2>Latest Issue</h2></div>
     </div>
 
     <a href="2026/Q2-roofing.html" class="featured">
       <div class="featured-cover">
         <div class="cover-badge">Current Issue</div>
         <div>
-          <div class="issue-num">06 <span>·</span> 26</div>
-          <div class="issue-month">Q2 Quarterly Review</div>
+          <div class="issue-num">Q2 <span>·</span> 26</div>
+          <div class="issue-month">Quarterly Review</div>
           <div class="issue-vol">Vol. 1 · Issue 4</div>
         </div>
       </div>
       <div class="featured-body">
-        <div class="metric-line"> Q2 Overview</div>
-        <h3>Q2 Overview</h3>
-        <p class="summary"> Q2 Overview </p>
-        <span class="read-link">Read the Q2 Review issue</span>
+        <div class="metric-line">Quarterly Review</div>
+        <h3>Steeper Slopes, Steeper Costs — The Q2 2026 Roofing Review</h3>
+        <p class="summary">Three months, three manufacturer price increases, a $17B distribution mega-deal, and a labor market tightening from every direction — a month-by-month recap of April through June with a role-by-role breakdown of what it means for your team.</p>
+        <span class="read-link">Read the Q2 review</span>
       </div>
     </a>
 
     <!-- PAST PUBLICATIONS -->
     <div class="section-head">
-      <h2>Past Publications</h2>
+      <div class="head-text"><h2>Past Publications</h2></div>
     </div>
-    <div class="issues-grid">
 
-      <a href="2026/Q2-roofing.html" class="featured">
-      <div class="featured-cover">
-        <div class="cover-badge">Current Issue</div>
-        <div>
-          <div class="issue-num">06 <span>·</span> 26</div>
-          <div class="issue-month">Q2 Quarterly Review</div>
-          <div class="issue-vol">Vol. 1 · Issue 4</div>
-        </div>
-      </div>
-      <div class="featured-body">
-        <div class="metric-line"> Q2 Overview</div>
-        <h3>Q2 Overview</h3>
-        <p class="summary"> Q2 Overview </p>
-        <span class="read-link">Read the Q2 Review issue</span>
-      </div>
-    </a>
-      
-      <a href="2026/05-may-roofing.html" class="featured">
-      <div class="featured-cover">
-        <div class="cover-badge">Current Issue</div>
-        <div>
-          <div class="issue-num">05 <span>·</span> 26</div>
-          <div class="issue-month">May 2026</div>
-          <div class="issue-vol">Vol. 1 · Issue 3</div>
-        </div>
-      </div>
-      <div class="featured-body">
-        <div class="metric-line">Key Metric: Supplement Recovery %</div>
-        <h3>Royalty Roofing USA Announces Dual May Acquisitions &amp; Residential Platforms Command 5–7x EBITDA; Commercial at Premium</h3>
-        <p class="summary">Royalty Roofing USA — the Seymour, Indiana–headquartered commercial and residential roofing platform — announced the simultaneous acquisitions of 768-Roof and Nasi Roofing, construction material prices are 43.4% above February 2020 levels per NRCA data, Founders Advisors' May 13 roofing M&A update confirms persistent buyer appetite despite macro headwinds, and covering the margin metric hiding in your insurance workflow.</p>
-        <span class="read-link">Read the May issue</span>
-      </div>
-    </a>
-      
-      <a href="2026/04-april-roofing.html" class="issue-card">
-        <div class="card-head">
-          <div class="card-issue-num">Vol. 1 · Issue 2</div>
-          <div class="card-month">April 2026</div>
-        </div>
-        <div class="card-body">
-          <h4>QXO's $19B Three-Week Sprint, Materials Margin Compression &amp; the Diligence Math Moving in Real Time</h4>
-          <div class="card-metric">Key Metric: Gain / Fade Analysis</div>
-          <p>QXO closed Kodiak on April 1 and announced TopBuild on April 19 — $19B+ deployed in three weeks, reshaping the roofing distribution layer into a duopoly conversation.</p>
-          <span class="card-link">Read this issue</span>
-        </div>
-      </a>
+    <div class="pub-carousel">
+      <button class="car-arrow car-prev" id="pubPrev" aria-label="Show previous issue" disabled>&#8249;</button>
 
-      <a href="2026/03-march-roofing.html" class="issue-card">
-        <div class="card-head">
-          <div class="card-issue-num">Vol. 1 · Issue 1</div>
-          <div class="card-month">March 2026</div>
+      <div class="pub-viewport">
+        <div class="pub-track" id="pubTrack">
+
+          <a href="2026/Q2-roofing.html" class="issue-card quarterly">
+            <div class="card-head">
+              <div class="card-issue-num">Vol. 1 · Issue 4</div>
+              <div class="card-month">Q2 2026</div>
+            </div>
+            <div class="card-body">
+              <h4>Steeper Slopes, Steeper Costs — The Q2 2026 Roofing Review</h4>
+              <div class="card-metric">Quarterly Review</div>
+              <p>Three months, three manufacturer price increases, a $17B distribution mega-deal, and a labor market tightening in every direction — the quarter that reset roofing's cost floor.</p>
+              <span class="card-link">Read this issue</span>
+            </div>
+          </a>
+
+          <a href="2026/05-may-roofing.html" class="issue-card">
+            <div class="card-head">
+              <div class="card-issue-num">Vol. 1 · Issue 3</div>
+              <div class="card-month">May 2026</div>
+            </div>
+            <div class="card-body">
+              <h4>Royalty Roofing USA Announces Dual May Acquisitions &amp; Residential Platforms Command 5–7x EBITDA; Commercial at Premium</h4>
+              <div class="card-metric">Key Metric: Supplement Recovery %</div>
+              <p>Royalty Roofing USA's simultaneous acquisitions of 768-Roof and Nasi Roofing, construction material prices 43.4% above February 2020 levels, and the margin metric hiding in your insurance workflow.</p>
+              <span class="card-link">Read this issue</span>
+            </div>
+          </a>
+
+          <a href="2026/04-april-roofing.html" class="issue-card">
+            <div class="card-head">
+              <div class="card-issue-num">Vol. 1 · Issue 2</div>
+              <div class="card-month">April 2026</div>
+            </div>
+            <div class="card-body">
+              <h4>QXO's $19B Three-Week Sprint, Materials Margin Compression &amp; the Diligence Math Moving in Real Time</h4>
+              <div class="card-metric">Key Metric: Gain / Fade Analysis</div>
+              <p>QXO closed Kodiak on April 1 and announced TopBuild on April 19 — $19B+ deployed in three weeks, reshaping the roofing distribution layer into a duopoly conversation.</p>
+              <span class="card-link">Read this issue</span>
+            </div>
+          </a>
+
+          <a href="2026/03-march-roofing.html" class="issue-card">
+            <div class="card-head">
+              <div class="card-issue-num">Vol. 1 · Issue 1</div>
+              <div class="card-month">March 2026</div>
+            </div>
+            <div class="card-body">
+              <h4>QXO's Kodiak Close, Coordinated Manufacturer Price Increases &amp; the EagleView One Launch</h4>
+              <div class="card-metric">Key Metric: Safety Incident Rate (TRIR)</div>
+              <p>The inaugural issue: QXO closes its $2.25B Kodiak acquisition, Atlas/CertainTeed/TAMKO push coordinated 5–8% price increases, and EagleView formally launches its property intelligence platform.</p>
+              <span class="card-link">Read this issue</span>
+            </div>
+          </a>
+
         </div>
-        <div class="card-body">
-          <h4>QXO's Kodiak Close, Coordinated Manufacturer Price Increases &amp; the EagleView One Launch</h4>
-          <div class="card-metric">Key Metric: Safety Incident Rate (TRIR)</div>
-          <p>The inaugural issue: QXO closes its $2.25B Kodiak acquisition, Atlas/CertainTeed/TAMKO push coordinated 5–8% price increases, and EagleView formally launches its property intelligence platform.</p>
-          <span class="card-link">Read this issue</span>
-        </div>
-      </a>
+      </div>
+
+      <button class="car-arrow car-next" id="pubNext" aria-label="Show next issue">&#8250;</button>
+
+      <div class="pub-dots" id="pubDots"></div>
     </div>
 
     <!-- WHAT'S COMING NEXT -->
     <div class="section-head">
-      <h2>What's Coming Next</h2>
+      <div class="head-text"><h2>What's Coming Next</h2></div>
     </div>
 
     <div class="issues-grid">
-      <div class="forthcoming-card">
-        <div class="card-head">
-          <div class="card-issue-num">Quarterly Report</div>
-          <div class="upc-badge">Forthcoming</div>
-        </div>
-        <div class="card-body">
-          <div class="card-month-line">Publishing early July</div>
-          <h4>The Q2 2026 Quarterly</h4>
-        </div>
-      </div>
       <div class="forthcoming-card">
         <div class="card-head">
           <div class="card-issue-num">Vol. 1 · Issue 5</div>
@@ -422,8 +488,10 @@
 
     <!-- PUBLICATION CADENCE -->
     <div class="section-head">
-      <div class="slabel">Publication Cadence</div>
-      <h2>How the Reports Stack Up</h2>
+      <div class="head-text">
+        <div class="slabel">Publication Cadence</div>
+        <h2>How the Reports Stack Up</h2>
+      </div>
     </div>
 
     <div class="cadence-strip">
@@ -446,8 +514,10 @@
 
     <!-- FRAMEWORK -->
     <div class="section-head">
-      <div class="slabel">Framework</div>
-      <h2>How We Read the Industry</h2>
+      <div class="head-text">
+        <div class="slabel">Framework</div>
+        <h2>How We Read the Industry</h2>
+      </div>
     </div>
 
     <div class="pillars-grid">
@@ -471,7 +541,7 @@
 
     <!-- ABOUT US -->
     <div class="section-head">
-      <h2>About Us</h2>
+      <div class="head-text"><h2>About Us</h2></div>
     </div>
 
     <div class="about-block">
@@ -498,6 +568,80 @@
       For informational purposes only. Not investment advice. Each issue cites its own primary sources and disclosures. Past performance does not guarantee future results.
     </div>
   </div>
+
+  <script>
+    (function(){
+      const track = document.getElementById('pubTrack');
+      const prevBtn = document.getElementById('pubPrev');
+      const nextBtn = document.getElementById('pubNext');
+      const dotsWrap = document.getElementById('pubDots');
+      if(!track || !prevBtn || !nextBtn) return;
+
+      const cards = Array.from(track.children);
+      let index = 0;
+
+      function getVisible(){
+        const cssVal = getComputedStyle(track).getPropertyValue('--visible').trim();
+        const n = parseInt(cssVal, 10);
+        return isNaN(n) ? 3 : n;
+      }
+
+      function getStep(){
+        if(!cards.length) return 0;
+        const trackStyle = getComputedStyle(track);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 20;
+        return cards[0].getBoundingClientRect().width + gap;
+      }
+
+      function maxIndex(){
+        return Math.max(0, cards.length - getVisible());
+      }
+
+      function buildDots(){
+        dotsWrap.innerHTML = '';
+        const total = maxIndex() + 1;
+        if(total <= 1){
+          dotsWrap.style.display = 'none';
+          return;
+        }
+        dotsWrap.style.display = 'flex';
+        for(let i = 0; i < total; i++){
+          const d = document.createElement('span');
+          d.className = 'dot' + (i === index ? ' active' : '');
+          dotsWrap.appendChild(d);
+        }
+      }
+
+      function update(){
+        const mi = maxIndex();
+        if(index > mi) index = mi;
+        if(index < 0) index = 0;
+        const step = getStep();
+        track.style.transform = 'translateX(-' + (index * step) + 'px)';
+        prevBtn.disabled = index <= 0;
+        nextBtn.disabled = index >= mi;
+        buildDots();
+      }
+
+      prevBtn.addEventListener('click', function(){
+        index = Math.max(0, index - 1);
+        update();
+      });
+
+      nextBtn.addEventListener('click', function(){
+        index = Math.min(maxIndex(), index + 1);
+        update();
+      });
+
+      let resizeTimer;
+      window.addEventListener('resize', function(){
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(update, 120);
+      });
+
+      update();
+    })();
+  </script>
 
 </body>
 </html>
